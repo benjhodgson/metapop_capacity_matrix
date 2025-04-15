@@ -30,16 +30,16 @@ where
 ## Calculating Metapopulation Capacity
 The landscape matrix used to calculate metapopulation capacity is defined as:
 
-\begin{equation}
-  m_{ij} =
-  \left[ {\begin{array}{cccc}
-    0 & e^{-\alpha\textit{d}_{12}}A_{1}A_{2} & \cdots & e^{-\alpha\textit{d}_{1j}}A_{1}A_{j}\\\\
-    e^{-\alpha\textit{d}_{21}}A_{2}A_{1} & 0 & \cdots & e^{-\alpha\textit{d}_{2j}}A_{2}A_{j}\\
-    \vdots & \vdots & \ddots & \vdots\\
-    e^{-\alpha\textit{d}_{i1}}A_{i}A_{1} & e^{-\alpha\textit{d}_{i2}}A_{i}A_{2} & \cdots & 0\\
-  \end{array} } \right]
-  i\neq j
-\end{equation}
+$$
+m_{ij} = \left[
+\begin{array}{cccc}
+0 & e^{-\alpha d_{12}} A_1 A_2 & \cdots & e^{-\alpha d_{1j}} A_1 A_j \\
+e^{-\alpha d_{21}} A_2 A_1 & 0 & \cdots & e^{-\alpha d_{2j}} A_2 A_j \\
+\vdots & \vdots & \ddots & \vdots \\
+e^{-\alpha d_{i1}} A_i A_1 & e^{-\alpha d_{i2}} A_i A_2 & \cdots & 0
+\end{array}
+\right], \quad i \neq j
+$$
 
 where $d_{ij}$ is the distance between habitat patches $i$ and $j$, $A_i$ and $A_j$ are the sizes of habitat patches $i$ and $j$ respectively, and $\alpha$ is the inverse of the mean dispersal distance.
 
