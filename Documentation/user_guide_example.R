@@ -4,17 +4,17 @@ rm(list = ls())
 
 # General -----------------------------------------------------------------
 
-install.packages("devtools") # install devtools for packages not on CRAN
-library(devtools)
-
-# install packages
-install.packages(c("tidyverse", "sf", "units", "ggplot2", "gganimate", 
-                   "igraph", "raster", "landscapemetrics", "units")) 
-
-# install packages not on CRAN
-devtools::install_github("ropensci/NLMR")
-install.packages('RandomFields', repos =
-                   'https://predictiveecology.r-universe.dev', type = 'source')
+# install.packages("devtools") # install devtools for packages not on CRAN
+# library(devtools)
+# 
+# # install packages
+# install.packages(c("tidyverse", "sf", "units", "ggplot2", "gganimate", 
+#                    "igraph", "raster", "landscapemetrics", "units")) 
+# 
+# # install packages not on CRAN
+# devtools::install_github("ropensci/NLMR")
+# install.packages('RandomFields', repos =
+#                    'https://predictiveecology.r-universe.dev', type = 'source')
 
 # load packages
 library(tidyverse)
@@ -81,7 +81,12 @@ for (j in 1:nrow(movement_combos)) {
   movement <- movement_combos$movement[j]
   movement_ability <- movement_combos$movement_ability[j]
   
+<<<<<<< HEAD
   # wrap parameters into list for simulation function
+=======
+  
+  # create parameters for function
+>>>>>>> 8446a0a035b6c80966d749a91a8a3bc6e81b6e94
   param_movement <- list(
     movement = movement,
     movement_ability = movement_ability
@@ -101,8 +106,8 @@ for (j in 1:nrow(movement_combos)) {
       
     resolution <- 1 # set resolution
     
-    x_extent <- 50 # set width
-    y_extent <- 50 # set height
+    x_extent <- 30 # set width
+    y_extent <- 30 # set height
     
     landscape_config <- 0.4 # level of patch aggregation
     
@@ -367,18 +372,27 @@ for (j in 1:nrow(movement_combos)) {
   
   # Run Model ---------------------------------------------------------------
   
+<<<<<<< HEAD
   num_reps <- 1 # specify the number of repeats
+=======
+  set.seed(123) # sets the overall model seed so that landscapes are consistent between model runs
+>>>>>>> 8446a0a035b6c80966d749a91a8a3bc6e81b6e94
   
+  num_reps <- 2 # specify the number of repeats
+  
+  seeds <- sample.int(1e6, num_reps) # choose seeds for landscapes
+
   # Set the number of cores for parallel processing
   num_cores <- 1
   
   # Use mclapply to apply the function 100 times in parallel
   result_final <- mclapply(1:num_reps, function(i) {
+    
+    set.seed(seeds[i]) # set the rep-specific seed
+    
     # Apply the function with the parameters passed from the list
     do.call(rep_function, param_movement)
   }, mc.cores = num_cores)
-  
-  
   
   
   result_final_name <- paste("result_final", movement, movement_ability, sep = "_")
