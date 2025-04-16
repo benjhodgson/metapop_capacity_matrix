@@ -3,17 +3,17 @@ rm(list = ls())
 
 # General -----------------------------------------------------------------
 
-install.packages("devtools") # install devtools for packages not on CRAN
-library(devtools)
-
-# install packages
-install.packages(c("tidyverse", "sf", "units", "ggplot2", "gganimate", 
-                   "igraph", "raster", "landscapemetrics", "units")) 
-
-# install packages not on CRAN
-devtools::install_github("ropensci/NLMR")
-install.packages('RandomFields', repos =
-                   'https://predictiveecology.r-universe.dev', type = 'source')
+# install.packages("devtools") # install devtools for packages not on CRAN
+# library(devtools)
+# 
+# # install packages
+# install.packages(c("tidyverse", "sf", "units", "ggplot2", "gganimate", 
+#                    "igraph", "raster", "landscapemetrics", "units")) 
+# 
+# # install packages not on CRAN
+# devtools::install_github("ropensci/NLMR")
+# install.packages('RandomFields', repos =
+#                    'https://predictiveecology.r-universe.dev', type = 'source')
 
 # load packages
 library(tidyverse)
@@ -81,39 +81,6 @@ for (j in 1:nrow(movement_combos)) {
   movement_ability <- movement_combos$movement_ability[j]
   
   
-  # Create Empty Dataframes -------------------------------------------------
-  
-  # Create metapopulation dynamics results data frame and final dataframe
-  
-  results <- data.frame()
-  
-  
-  # Create landscape final dataframe
-  
-  landscape_final <- data.frame(
-    layer = numeric(),
-    x = numeric(),
-    y = numeric(),
-    patch = numeric())
-  
-  # Create parameter final dataframe
-  
-  params_final <- data.frame(
-    alpha = numeric(),
-    x = numeric(),
-    y = numeric(),
-    e = numeric(),
-    start_p = numeric(),
-    resolution = numeric(),
-    x_extent = numeric(),
-    y_extent = numeric(),
-    landscape_config = numeric(),
-    landscape_cover = numeric(),
-    edge_density = numeric(),
-    mean_distance = numeric(),
-    mean_patch_size = numeric())
-  
-  
   # create parameters for function
   param_movement <- list(
     movement = movement,
@@ -135,8 +102,8 @@ for (j in 1:nrow(movement_combos)) {
     
     resolution <- 1 # set resolution
     
-    x_extent <- 50 # set width
-    y_extent <- 50 # set height
+    x_extent <- 30 # set width
+    y_extent <- 30 # set height
     
     landscape_config <- 0.4 # level of patch aggregation
     
@@ -403,19 +370,23 @@ for (j in 1:nrow(movement_combos)) {
   
   
   # Run Model ---------------------------------------------------------------
+  set.seed(123)
   
-  num_reps <- 30 # specify the number of repeats
+  num_reps <- 2 # specify the number of repeats
   
+  seeds <- sample.int(1e6, num_reps) # choose seeds for landscapes
+
   # Set the number of cores for parallel processing
   num_cores <- 1
   
   # Use mclapply to apply the function 100 times in parallel
   result_final <- mclapply(1:num_reps, function(i) {
+    
+    set.seed(seeds[i])
+    
     # Apply the function with the parameters passed from the list
     do.call(rep_function, param_movement)
   }, mc.cores = num_cores)
-  
-  
   
   
   result_final_name <- paste("result_final", movement, movement_ability, sep = "_")
@@ -434,4 +405,4 @@ print( Sys.time() - start_timer)
 
 # Save outputs ------------------------------------------------------------
 
-saveRDS(result_final_complete, file = "Result_Final")
+# saveRDS(result_final_complete, file = "Result_Final")
