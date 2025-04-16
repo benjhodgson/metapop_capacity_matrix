@@ -47,6 +47,15 @@ In R, we can create the landscape matrix from a distance matrix named `dist_matr
 
 
 ``` r
+dist_matrix <- matrix(c(
+  0, 2, 4, 6, 8,
+  2, 0, 3, 5, 7,
+  4, 3, 0, 1, 9,
+  6, 5, 1, 0, 2,
+  8, 7, 9, 2, 0
+), nrow = 5, byrow = TRUE)
+
+
 metapop <- exp(-alpha * dist_matrix) # exponent of -alpha * distances
     diag(metapop) <- 0 # set diagonal back to 0
     

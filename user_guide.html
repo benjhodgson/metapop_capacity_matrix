@@ -1511,19 +1511,19 @@ indefinitely, the species-specific colonisation constant <span class="math inlin
 Metapopulation Capacity</h2>
 <p>The landscape matrix used to calculate metapopulation capacity is
 defined as:</p>
-<p><span class="math display">\[\begin{equation}
-  m_{ij} =
-  \left[ {\begin{array}{cccc}
-    0 &amp; e^{-\alpha\textit{d}_{12}}A_{1}A_{2} &amp; \cdots &amp;
-e^{-\alpha\textit{d}_{1j}}A_{1}A_{j}\\\\
-    e^{-\alpha\textit{d}_{21}}A_{2}A_{1} &amp; 0 &amp; \cdots &amp;
-e^{-\alpha\textit{d}_{2j}}A_{2}A_{j}\\
-    \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
-    e^{-\alpha\textit{d}_{i1}}A_{i}A_{1} &amp;
-e^{-\alpha\textit{d}_{i2}}A_{i}A_{2} &amp; \cdots &amp; 0\\
-  \end{array} } \right]
-  i\neq j
-\end{equation}\]</span></p>
+<p><span class="math display">\[
+m_{ij} = \left[
+\begin{array}{cccc}
+0 &amp; e^{-\alpha d_{12}} A_1 A_2 &amp; \cdots &amp; e^{-\alpha d_{1j}}
+A_1 A_j \\
+e^{-\alpha d_{21}} A_2 A_1 &amp; 0 &amp; \cdots &amp; e^{-\alpha d_{2j}}
+A_2 A_j \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+e^{-\alpha d_{i1}} A_i A_1 &amp; e^{-\alpha d_{i2}} A_i A_2 &amp; \cdots
+&amp; 0
+\end{array}
+\right], \quad i \neq j
+\]</span></p>
 <p>where <span class="math inline">\(d_{ij}\)</span> is the distance
 between habitat patches <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, <span class="math inline">\(A_i\)</span> and <span class="math inline">\(A_j\)</span> are the sizes of habitat patches
 <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> respectively, and <span class="math inline">\(\alpha\)</span> is the inverse of the mean
@@ -1532,7 +1532,16 @@ dispersal distance.</p>
 <code>dist_matrix</code> and an area matrix named
 <code>area_matrix</code>. The eigenvalues are then extracted and the
 leading eigenvalue, or metapopulation capacity <span class="math inline">\(\lambda_{M}\)</span>, is isolated.</p>
-<pre class="r"><code>metapop &lt;- exp(-alpha * dist_matrix) # exponent of -alpha * distances
+<pre class="r"><code>dist_matrix &lt;- matrix(c(
+  0, 2, 4, 6, 8,
+  2, 0, 3, 5, 7,
+  4, 3, 0, 1, 9,
+  6, 5, 1, 0, 2,
+  8, 7, 9, 2, 0
+), nrow = 5, byrow = TRUE)
+
+
+metapop &lt;- exp(-alpha * dist_matrix) # exponent of -alpha * distances
     diag(metapop) &lt;- 0 # set diagonal back to 0
     
     area_matrix &lt;- outer(patch_area_df$area, patch_area_df$area, FUN = &quot;*&quot;)
