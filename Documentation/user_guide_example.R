@@ -81,12 +81,8 @@ for (j in 1:nrow(movement_combos)) {
   movement <- movement_combos$movement[j]
   movement_ability <- movement_combos$movement_ability[j]
   
-<<<<<<< HEAD
+
   # wrap parameters into list for simulation function
-=======
-  
-  # create parameters for function
->>>>>>> 8446a0a035b6c80966d749a91a8a3bc6e81b6e94
   param_movement <- list(
     movement = movement,
     movement_ability = movement_ability
@@ -372,11 +368,9 @@ for (j in 1:nrow(movement_combos)) {
   
   # Run Model ---------------------------------------------------------------
   
-<<<<<<< HEAD
   num_reps <- 1 # specify the number of repeats
-=======
+
   set.seed(123) # sets the overall model seed so that landscapes are consistent between model runs
->>>>>>> 8446a0a035b6c80966d749a91a8a3bc6e81b6e94
   
   num_reps <- 2 # specify the number of repeats
   
