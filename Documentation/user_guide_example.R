@@ -1,3 +1,4 @@
+### Example code used within the User Guide document
 
 rm(list = ls())
 
@@ -80,47 +81,11 @@ for (j in 1:nrow(movement_combos)) {
   movement <- movement_combos$movement[j]
   movement_ability <- movement_combos$movement_ability[j]
   
-  
-  # Create Empty Dataframes -------------------------------------------------
-  
-  # Create metapopulation dynamics results data frame and final dataframe
-  
-  results <- data.frame()
-  
-  
-  # Create landscape final dataframe
-  
-  landscape_final <- data.frame(
-    layer = numeric(),
-    x = numeric(),
-    y = numeric(),
-    patch = numeric())
-  
-  # Create parameter final dataframe
-  
-  params_final <- data.frame(
-    alpha = numeric(),
-    x = numeric(),
-    y = numeric(),
-    e = numeric(),
-    start_p = numeric(),
-    resolution = numeric(),
-    x_extent = numeric(),
-    y_extent = numeric(),
-    landscape_config = numeric(),
-    landscape_cover = numeric(),
-    edge_density = numeric(),
-    mean_distance = numeric(),
-    mean_patch_size = numeric())
-  
-  
-  # create parameters for function
+  # wrap parameters into list for simulation function
   param_movement <- list(
     movement = movement,
     movement_ability = movement_ability
   )
-  
-  
   
   
   # Simulation Function -----------------------------------------------------
@@ -133,6 +98,7 @@ for (j in 1:nrow(movement_combos)) {
     
     # Set Landscape Parameters ------------------------------------------------
     
+      
     resolution <- 1 # set resolution
     
     x_extent <- 50 # set width
@@ -319,7 +285,7 @@ for (j in 1:nrow(movement_combos)) {
     
     
     
-    # pick correct constants (slopes) for current dispersal scenario
+    # pick correct constants (slopes) for current movement scenario
     
     slope <- slopes %>% 
       filter(m == movement & m_a == movement_ability)
@@ -341,7 +307,7 @@ for (j in 1:nrow(movement_combos)) {
     } else if (movement == "convex") {
       dispersal_factor <- conv_permeability(y  = relative_yield, s = slope, s2 = slope_2, a = a)
     } else if (movement == "none") {
-      dispersal_factor <- 1  
+      dispersal_factor <- 1  # movement does not change with yield in null scenarios
     } else {
       print("No matching movement")
     }
@@ -351,10 +317,9 @@ for (j in 1:nrow(movement_combos)) {
     # Set model parameters ====================================================
     
     dispersal_extensive <- 8 # set max mean dispersal distance at relative yield = 0
-    dispersal_intense <- dispersal_extensive/ (1+(movement_ability/100))
+    dispersal_intense <- dispersal_extensive/ (1+(movement_ability/100)) # calculates mean dispersal distance under relative yield = 1
     dispersal <- dispersal_intense * dispersal_factor # set actual mean dispersal distance based on yield
-    alpha <- 1/dispersal
-    
+    alpha <- 1/dispersal # sets alpha
     
     
     
@@ -368,11 +333,11 @@ for (j in 1:nrow(movement_combos)) {
     
     metapop2 <- metapop * area_matrix # multiply metapop by areas of both habitat patches
     
-    eig <- eigen(metapop2)
+    eig <- eigen(metapop2) # extract eigenvalues
     
-    metapop_cap <- eig$values[1]
+    metapop_cap <- eig$values[1] # isolate leading eigenvalue
     
-    
+    # populates results
     results <- data.frame(
       metapop_cap = metapop_cap,
       alpha = alpha,
@@ -385,13 +350,13 @@ for (j in 1:nrow(movement_combos)) {
       mean_distance = mean_distance,
       mean_patch_size = mean_patch_size)
     
-    
+    # wraps results and landscape data into a list
     results_list <- list(
       results = results,
       landscape = landscape_df
     )
     
-    
+    # returns list of results
     return(results_list)
     
   }
@@ -400,11 +365,9 @@ for (j in 1:nrow(movement_combos)) {
   
   
   
-  
-  
   # Run Model ---------------------------------------------------------------
   
-  num_reps <- 30 # specify the number of repeats
+  num_reps <- 1 # specify the number of repeats
   
   # Set the number of cores for parallel processing
   num_cores <- 1
@@ -434,4 +397,4 @@ print( Sys.time() - start_timer)
 
 # Save outputs ------------------------------------------------------------
 
-saveRDS(result_final_complete, file = "Result_Final")
+# saveRDS(result_final_complete, file = "Result_Final")
