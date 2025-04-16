@@ -370,7 +370,8 @@ for (j in 1:nrow(movement_combos)) {
   
   
   # Run Model ---------------------------------------------------------------
-  set.seed(123)
+  
+  set.seed(123) # sets the overall model seed so that landscapes are consistent between model runs
   
   num_reps <- 2 # specify the number of repeats
   
@@ -382,7 +383,7 @@ for (j in 1:nrow(movement_combos)) {
   # Use mclapply to apply the function 100 times in parallel
   result_final <- mclapply(1:num_reps, function(i) {
     
-    set.seed(seeds[i])
+    set.seed(seeds[i]) # set the rep-specific seed
     
     # Apply the function with the parameters passed from the list
     do.call(rep_function, param_movement)
