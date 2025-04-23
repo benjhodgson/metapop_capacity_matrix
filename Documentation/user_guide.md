@@ -50,7 +50,7 @@ start_timer <- Sys.time()
 
 
 ## Create and Loop through Dispersal Scenarios
-This section first creates a grid of each possible movement scenario. Each movement scenario consists of the shape of the movement response (eg. `linear`, `convex` etc.) and the percentage increase in mean dispersal ability from a relative yield of 0 to a relative yield of 1 (eg. `50`, `1000` etc.).
+This section first creates a grid of each possible movement scenario. Each movement scenario consists of the shape of the movement response (eg. `linear`, `convex` etc.) and the percentage increase in mean dispersal ability from a relative yield of 0 to a relative yield of 1 (eg. `50`, `1000` etc.). A loop is then started which will loop through each of the unique movement scenarios, the details of which are added to a list of parameters. 
 
 ``` r
 # Loop for dispersal scenarios --------------------------------------------
@@ -110,6 +110,7 @@ for (j in 1:nrow(movement_combos)) {
 ```
 
 ## Create Simulation Function
+This section defines a function that will perform the simulation. It starts by setting the landscape parameters including the extent, resolution, level of aggregation and productivity target. See [Model Overview - Landscape Creation](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/model_overview.md) for further details.
 
 ``` r
  # Simulation Function -----------------------------------------------------
@@ -138,6 +139,7 @@ for (j in 1:nrow(movement_combos)) {
 
 
 ## Landscape Creation
+A landscape is then generated using the random cluster method within the `NLMR` package. Habitat patches, or 'clumps' are identified using the 8-neighbour method, and edge density is calculated. The raster landscape is then coerced to a data frame and patch numbers are given to each unique habitat patch. The landscape generation code is enveloped within a `repeat` loop to ensure there are at least two habitat patches (a requirement for metapopulation capacity). Finally, the exact proportion of habitat cover is calculated.
 
 ``` r
 # Generate Landscape ------------------------------------------------------
@@ -191,6 +193,7 @@ for (j in 1:nrow(movement_combos)) {
 
 
 ## Habitat Patch Distances and Areas
+The landscape data frame is then converted back to a raster and the crs is set. The raster is then converted to a polygon (vector) and a distance matrix of inter-patch nearest-neighbour distances is created. The 'patch' numbers in the landscape data frame and the distance matrix may not match, and so this is corrected for by renaming the patch numbers to those assigned during the conversion to polygon. The area of each habitat patch is then calculated, and a landscape plot is generated. Finally, mean patch size and mean inter-patch distance is calculated for recording in the final results.
 
 ``` r
 ## Calculate Distances and Areas ==========================================
@@ -244,7 +247,7 @@ for (j in 1:nrow(movement_combos)) {
     # remove unnecessary variables
     rm(new_patch_numbers, habitat_polygons_sf) 
     
-    # clean up landscape dataframe
+    # clean up landscape data frame
     landscape_df <- landscape_df %>%
       dplyr::select(-patch) %>%    # Remove the 'patch' column
       rename(patch = index) 
@@ -282,6 +285,8 @@ for (j in 1:nrow(movement_combos)) {
 
 
 ## Matrix Effects
+The agricultural yield of the non-habitat matrix is calculated as a function of the landscape production target and the habitat cover. This yield is then normalised relative to the landscape production target to give a relative yield. See [Model Overview - Matrix Effects](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/model_overview.md) for explanation. The functions for the three dispersal responses to yield are then created. The correct slope (constants) for the given movement scenario are taken from the data frame of slope constants created in [1.2](# Create and Loop through Dispersal Scenarios). These constants are passed to the correct function for the given movement scenario and the resultant `dispersal_factor` is recorded. Finally, the mean dispersal distances of the species at a relative yield of 0 and 1 are set based on the movement scenario and the dispersal ability of the species, the actual mean dispersal distance of the species for this landscape is calculated, and the `alpha` ($\alpha$) constant is calculated. 
+
 
 ``` r
 # Matrix Effects ----------------------------------------------------------
@@ -357,6 +362,7 @@ for (j in 1:nrow(movement_combos)) {
 
 
 ## Metapopulation Capacity
+To calculate metapopulation capacity, the distance matrix is multiplied by negative $\alpha$ and the leading diagonal is set to 0. This matrix is then multiplied by a newly created area matrix. The matrix eigenvalues are extracted and the leading eigenvalue (metapopulation capacity) is isolated. A data frame of model results is then populated and wrapped into a list with the landscape data frame.
 
 ``` r
 # Metapopulation Capacity Model -------------------------------------------
@@ -399,6 +405,7 @@ for (j in 1:nrow(movement_combos)) {
 ```
 
 ## Run Model
+The final section of the model loops through each movement scenario and applies the simulation function. The number of replicates (for each movement scenario) is defined and an overall seed is set. Seeds are then generated for each repetition, ensuring landscapes across movement scenarios are the same. The simulation function is then applied in parallel (doesn't work in Windows) using a specified number of cores. The lists of results for each replicate and movement scenario are wrapped into a final nested list of data called `results_final_complete`. The model timer is stopped, the model runtime printed, and the results saved to the local device. 
 
 ``` r
 # Run Model ---------------------------------------------------------------
