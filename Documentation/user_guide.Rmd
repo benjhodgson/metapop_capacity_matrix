@@ -23,7 +23,7 @@ install.packages("devtools") # install devtools for packages not on CRAN
 library(devtools)
 
 # install packages
-install.packages(c("tidyverse", "sf", "units", "ggplot2", "gganimate",
+install.packages(c("tidyverse", "sf", "units", "gganimate",
                    "igraph", "raster", "landscapemetrics", "units"))
 
 # install packages not on CRAN
@@ -281,7 +281,7 @@ The landscape data frame is then converted back to a raster and the crs is set. 
 
 
 ## Matrix Effects
-The agricultural yield of the non-habitat matrix is calculated as a function of the landscape production target and the habitat cover. This yield is then normalised relative to the landscape production target to give a relative yield. See [Model Overview - Matrix Effects](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/model_overview.md) for explanation. The functions for the three dispersal responses to yield are then created. The correct slope (constants) for the given movement scenario are taken from the data frame of slope constants created in [1.2](# Create and Loop through Dispersal Scenarios). These constants are passed to the correct function for the given movement scenario and the resultant `dispersal_factor` is recorded. Finally, the mean dispersal distances of the species at a relative yield of 0 and 1 are set based on the movement scenario and the dispersal ability of the species, the actual mean dispersal distance of the species for this landscape is calculated, and the `alpha` ($\alpha$) constant is calculated. 
+The agricultural yield of the non-habitat matrix is calculated as a function of the landscape production target and the habitat cover. This yield is then normalised relative to the landscape production target to give a relative yield. See [Model Overview - Matrix Effects](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/model_overview.md) for explanation. The functions for the three dispersal responses to yield are then created. The correct slope (constants) for the given movement scenario are taken from the data frame of slope constants created in [1.2](# Create and Loop through Dispersal Scenarios). These constants are passed to the correct function for the given movement scenario and the resultant `dispersal_factor` is recorded. Finally, the mean dispersal distance of the species at a relative yield of 1 is set, the actual mean dispersal distance of the species for this landscape is calculated, and the `alpha` ($\alpha$) constant is calculated. 
 
 ``` {r matrix effects, eval=FALSE}
 # Matrix Effects ----------------------------------------------------------
@@ -349,8 +349,7 @@ The agricultural yield of the non-habitat matrix is calculated as a function of 
     
     # Set model parameters ====================================================
     
-    dispersal_extensive <- 8 # set max mean dispersal distance at relative yield = 0
-    dispersal_intense <- dispersal_extensive/ (1+(movement_ability/100)) # calculates mean dispersal distance under relative yield = 1
+    dispersal_intense <- 0.8 # set max mean dispersal distance at relative yield = 1
     dispersal <- dispersal_intense * dispersal_factor # set actual mean dispersal distance based on yield
     alpha <- 1/dispersal # sets alpha
 ```
@@ -444,7 +443,7 @@ saveRDS(result_final_complete, file = "Result_Final")
 ```
 
 
-## Data Extraction
+# Data Extraction
 
-## Table of Movement Scenario Constants
+# Table of Movement Scenario Constants
 

@@ -1506,7 +1506,7 @@ install.packages(&quot;devtools&quot;) # install devtools for packages not on CR
 library(devtools)
 
 # install packages
-install.packages(c(&quot;tidyverse&quot;, &quot;sf&quot;, &quot;units&quot;, &quot;ggplot2&quot;, &quot;gganimate&quot;,
+install.packages(c(&quot;tidyverse&quot;, &quot;sf&quot;, &quot;units&quot;, &quot;gganimate&quot;,
                    &quot;igraph&quot;, &quot;raster&quot;, &quot;landscapemetrics&quot;, &quot;units&quot;))
 
 # install packages not on CRAN
@@ -1793,10 +1793,9 @@ three dispersal responses to yield are then created. The correct slope
 frame of slope constants created in <a href="#id_%20Create%20and%20Loop%20through%20Dispersal%20Scenarios">1.2</a>.
 These constants are passed to the correct function for the given
 movement scenario and the resultant <code>dispersal_factor</code> is
-recorded. Finally, the mean dispersal distances of the species at a
-relative yield of 0 and 1 are set based on the movement scenario and the
-dispersal ability of the species, the actual mean dispersal distance of
-the species for this landscape is calculated, and the <code>alpha</code>
+recorded. Finally, the mean dispersal distance of the species at a
+relative yield of 1 is set, the actual mean dispersal distance of the
+species for this landscape is calculated, and the <code>alpha</code>
 (<span class="math inline">\(\alpha\)</span>) constant is
 calculated.</p>
 <pre class="r"><code># Matrix Effects ----------------------------------------------------------
@@ -1864,8 +1863,7 @@ calculated.</p>
     
     # Set model parameters ====================================================
     
-    dispersal_extensive &lt;- 8 # set max mean dispersal distance at relative yield = 0
-    dispersal_intense &lt;- dispersal_extensive/ (1+(movement_ability/100)) # calculates mean dispersal distance under relative yield = 1
+    dispersal_intense &lt;- 0.8 # set max mean dispersal distance at relative yield = 1
     dispersal &lt;- dispersal_intense * dispersal_factor # set actual mean dispersal distance based on yield
     alpha &lt;- 1/dispersal # sets alpha</code></pre>
 </div>
@@ -1970,13 +1968,13 @@ print( Sys.time() - start_timer)
 
 saveRDS(result_final_complete, file = &quot;Result_Final&quot;)</code></pre>
 </div>
-<div id="data-extraction" class="section level2" number="1.9">
-<h2><span class="header-section-number">1.9</span> Data Extraction</h2>
 </div>
-<div id="table-of-movement-scenario-constants" class="section level2" number="1.10">
-<h2><span class="header-section-number">1.10</span> Table of Movement
-Scenario Constants</h2>
+<div id="data-extraction" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Data Extraction</h1>
 </div>
+<div id="table-of-movement-scenario-constants" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Table of Movement
+Scenario Constants</h1>
 </div>
 
 
