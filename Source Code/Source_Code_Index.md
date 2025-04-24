@@ -32,3 +32,8 @@ See: [Matrix Effects](https://github.com/benjhodgson/metapop_capacity_matrix/blo
 See: [Annotated R Example](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/user_guide.md#annotated-example-r-model)
 
 # Source Code for Experimental Design
+## Exploring Metapopulation Capacity
+### Habitat Cover Independent Effects
+[Habitat Cover Independent Effects](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Experimental%20Design%20Code/Exploring%20Metapopulation%20Capacity/habitat_cover_independent.R)
+
+See: [The independent effects of habitat cover on metapopulation capacity](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/Experimental-Design.md#the-independent-effects-of-habitat-cover-on-metapopulation-capacity)
