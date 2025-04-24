@@ -295,6 +295,8 @@ theme(
 )
 ```
 
+Species may have more complex dispersal responses to yield, however, these three basic responses should allow us to see the effects of matrix quality on species persistence.
+
 
 
 Species may have more complex dispersal responses to yield, however, these three basic responses should allow us to see the effects of matrix quality on species persistence.

@@ -93,6 +93,8 @@ And we assume that dispersal ability may increase by either *1.5x*, *5x* or *10x
 
 Species may have more complex dispersal responses to yield, however, these three basic responses should allow us to see the effects of matrix quality on species persistence.
 
+Species may have more complex dispersal responses to yield, however, these three basic responses should allow us to see the effects of matrix quality on species persistence.
+
 
 
 
