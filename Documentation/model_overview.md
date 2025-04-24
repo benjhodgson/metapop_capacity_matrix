@@ -87,7 +87,11 @@ where $s$, $s_2$ and $a$ are constants, and the dispersal factor is the factor t
 And we assume that dispersal ability may increase by either *1.5x*, *5x* or *10x*, we can plot the following dispersal-yield functions:
 
 
-![](model_overview_files/figure-html/Dispersal-Yield Functions-1.png)<!-- -->
+![](model_overview_files/figure-html/Dispersal-Yield_Functions-1.png)<!-- -->
+
+
+
+Species may have more complex dispersal responses to yield, however, these three basic responses should allow us to see the effects of matrix quality on species persistence.
 
 
 

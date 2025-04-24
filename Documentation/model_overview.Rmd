@@ -199,7 +199,7 @@ where $s$, $s_2$ and $a$ are constants, and the dispersal factor is the factor t
 And we assume that dispersal ability may increase by either *1.5x*, *5x* or *10x*, we can plot the following dispersal-yield functions:
 
 
-```{r Dispersal-Yield Functions, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Dispersal-Yield_Functions, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
 
@@ -263,7 +263,6 @@ df <- df %>%
   ) %>%
   ungroup()
 
-# Custom labeller for facet titles
 label_movement_ability <- function(variable, value) {
   paste("Movement Ability:", value)
 }
@@ -294,8 +293,11 @@ theme(
   strip.text = element_text(face = "plain", size = 10),
   axis.title.y = element_text(margin = margin(r = 10))
 )
-
 ```
+
+
+
+Species may have more complex dispersal responses to yield, however, these three basic responses should allow us to see the effects of matrix quality on species persistence.
 
 
 
