@@ -263,7 +263,6 @@ df <- df %>%
   ) %>%
   ungroup()
 
-# Custom labeller for facet titles
 label_movement_ability <- function(variable, value) {
   paste("Movement Ability:", value)
 }
@@ -296,6 +295,8 @@ theme(
 )
 
 ```
+
+Species may have more complex dispersal responses to yield, however, these three basic responses should allow us to see the effects of matrix quality on species persistence.
 
 
 
