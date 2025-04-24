@@ -17,9 +17,18 @@ Return to Model README: [README](https://github.com/benjhodgson/metapop_capacity
 ### Example Landscapes
 [Example Landscapes Code](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Documentation%20Code/Model%20Overview/Landscape_Examples.R)
 
-See: See: [Landscape Creation](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/model_overview.md#landscape-creation)
+See: [Landscape Creation](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/model_overview.md#landscape-creation)
 
 ### Dispersal-Yield Functions
 [Dispersal-Yield Functions](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Documentation%20Code/Model%20Overview/Dispersal_Yield_Function_Examples.R)
 
 See: [Matrix Effects](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/model_overview.md#matrix-effects)
+
+
+## User Guide
+### Annotated R Example
+[Annotated R Example](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Documentation%20Code/User%20Guide/user_guide_example.R)
+
+See: [Annotated R Example](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/user_guide.md#annotated-example-r-model)
+
+# Source Code for Experimental Design
