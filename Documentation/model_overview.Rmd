@@ -200,6 +200,7 @@ And we assume that dispersal ability may increase by either *1.5x*, *5x* or *10x
 
 
 ```{r Dispersal-Yield Functions, echo=FALSE, message=FALSE, warning=FALSE}
+
 library(tidyverse)
 
 # Define parameters
