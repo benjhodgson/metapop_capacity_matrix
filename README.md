@@ -11,7 +11,7 @@ A detailed explanation of an example model can be found here: [User Guide](https
 An overview of the different methods used can be found here: [Experimental Design](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/Experimental-Design.md)
 
 ## Results
-
+The model results can be found here: [Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md)
 ## Source Code
 An index to all source code can be found here: [Source Code Index](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Source_Code_Index.md)
 
