@@ -8,6 +8,7 @@ output:
     number_sections: true
 date: "2025-04-24"
 ---
+Return to Model README: [README](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/README.md)
 
 # Exploring Metapopulation Capacity
 ## The independent effects of habitat cover on metapopulation capacity

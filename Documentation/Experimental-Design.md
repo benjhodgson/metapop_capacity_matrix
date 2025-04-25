@@ -8,6 +8,7 @@ output:
     number_sections: true
 date: "2025-04-24"
 ---
+Return to Model README: [README](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/README.md)
 
 # Exploring Metapopulation Capacity
 Source Code: [Exploring Metapopulation Capacity Code](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Source_Code_Index.md#Exploring-Metapopulation-Capacity)
@@ -22,7 +23,7 @@ To investigate the effect of habitat cover independently from the distance betwe
 
 The metapopulation capacity is then calculated for each of the three arrangements for landscapes as the area of each habitat patch increases from 1 to 500. The distances between each habitat patch remains constant, despite the area of the habitat patches increasing. Alpha was set at 0.05, which equates to a mean dispersal distance of 20 units.
 
-Results: [Habitat Cover Independent Results LINK]()
+Results: [The independent effects of habitat cover on metapopulation capacity Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-independent-effects-of-habitat-cover-on-metapopulation-capacity)
 
 
 ## The independent effects of inter-patch distance on metapopulation capacity 
@@ -33,4 +34,24 @@ To investigate the effect of the mean distance between habitat patches on metapo
 
 The distance matrix is calculated, however this is then multiplied by a scaling factor between 1 and 5 and the metapopulation capacity is calculated.
 
-Results: [Habitat Distance Independent Results LINK]()
+Results: [The independent effects of inter-patch distance on metapopulation capacity Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-independent-effects-of-inter-patch-distance-on-metapopulation-capacity)
+
+
+## The effects of habitat configuration on mean inter-patch distance
+
+The level of spatial aggregation of habitat patches (habitat configuration) will affect the mean inter-patch distance between habitat patches. To explore this relationship, random landscapes with varying values of p will be generated and the edge density (a measure of spatial aggregation), inter-patch distances will be recorded. 
+
+Landscapes will be 100 x 100 with a set habitat proportion of 0.15.
+
+p values, which dictate the level of spatial aggregation will be 0.01, 0.1, 0.2, 0.4.
+
+An example of each of these landscapes can be seen here:
+
+There will be 100 unique landscapes for each p value.
+
+## The effects of habitat cover on mean inter-patch distance
+
+Habitat area will rarely change without also affecting the nearest distance between patches. Increasing the habitat cover, therefore will likely indirectly affect metapopulation capacity by decreasing the mean inter-patch distance between habitat patches. To explore the effect of habitat cover on  
+
+
+
