@@ -36,7 +36,7 @@ The log of metapopulation capacity plotted against mean distance between patches
 
 ## The effects of habitat configuration on patch distances and areas
 
-Experimental Design: [The effects of habitat configuration on patch distances and areas LINK]()
+Experimental Design: [The effects of habitat configuration on patch distances and areas](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/Experimental-Design.md#the-effects-of-habitat-configuration-on-patch-distances-and-areas)
 
 ![](Results_files/figure-html/config_distance_results-1.png)<!-- -->
 
