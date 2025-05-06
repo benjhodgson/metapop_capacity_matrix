@@ -112,15 +112,15 @@ resolution <- 1 # set resolution
 # set habitat configuration and covers
 landscape_config_vector <- c(0.01, 0.1, 0.2, 0.4) # level of patch aggregation
 
-x_extent <- 100 # set width
-y_extent <- 100 # set height
+x_extent <- 40 # set width
+y_extent <- 40 # set height
 
 # set habitat configuration and covers
 landscape_config_vector <- c(0.01, 0.1, 0.2, 0.4) # level of patch aggregation
 
 ai <- 0.15 #  random proportion of landscape that is habitat between species bounds
 
-n_replicates <- 100 # set the number of replicates
+n_replicates <- 20 # set the number of replicates
 
 
 # Set up list to store everything

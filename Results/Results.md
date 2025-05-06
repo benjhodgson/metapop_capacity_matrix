@@ -33,3 +33,11 @@ Scaling the dispersal matrix whilst keeping the habitat area constant gives the 
 The log of metapopulation capacity plotted against mean distance between patches gives the following results:
 
 ![](Results_files/figure-html/distance_landscapes_log_results-1.png)<!-- -->
+
+## The effects of habitat configuration on patch distances and areas
+
+Experimental Design: [The effects of habitat configuration on patch distances and areas LINK]()
+
+![](Results_files/figure-html/config_distance_results-1.png)<!-- -->
+
+

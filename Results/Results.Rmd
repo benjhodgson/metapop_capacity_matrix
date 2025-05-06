@@ -16,7 +16,7 @@ Return to Model README: [README](https://github.com/benjhodgson/metapop_capacity
 Experimental Design: [The independent effects of habitat cover on metapopulation capacity](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/Experimental-Design.md#the-independent-effects-of-habitat-cover-on-metapopulation-capacity)
 
 Changing the size of habitat patches, without changing the distance between the habitat patches gives the following relationship between metapopulation capacity and habitat cover:
-```{r area_landscapes_results, echo=FALSE, fig.height=10, fig.width=5, message=FALSE, warning=FALSE, dpi=300}
+```{r area_landscapes_results, echo=FALSE, fig.height=8, message=FALSE, warning=FALSE, dpi=300}
 
 
 rm(list = ls())
@@ -209,7 +209,7 @@ mp_1 / mp_2 / mp_3
 
 The log of metapopulation capacity plotted against habitat cover gives the following results:
 
-```{r area_landscapes_log_results, echo=FALSE, fig.height=10, fig.width=5, message=FALSE, warning=FALSE, dpi=300}
+```{r area_landscapes_log_results, echo=FALSE, fig.height=8,  message=FALSE, warning=FALSE, dpi=300}
 
 
 # Plot log metapopulation capacity
@@ -262,7 +262,7 @@ log_mp_1 / log_mp_2 / log_mp_3
 Experimental Design: [The independent effects of habitat cover on metapopulation capacity](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/Experimental-Design.md#the-independent-effects-of-inter-patch-distance-on-metapopulation-capacity)
 
 Scaling the dispersal matrix whilst keeping the habitat area constant gives the following relationship between metapopulation capacity and mean distance between habitat patches.
-```{r dispersal_landscapes_results, echo=FALSE, fig.height=10, fig.width=5, message=FALSE, warning=FALSE, dpi=300}
+```{r dispersal_landscapes_results, echo=FALSE, fig.height=8, message=FALSE, warning=FALSE, dpi=300}
 
 
 
@@ -470,7 +470,7 @@ mp_1 / mp_2 / mp_3
 
 The log of metapopulation capacity plotted against mean distance between patches gives the following results:
 
-```{r distance_landscapes_log_results, echo=FALSE, fig.height=10, fig.width=5, message=FALSE, warning=FALSE, dpi=300}
+```{r distance_landscapes_log_results, echo=FALSE, fig.height=8, message=FALSE, warning=FALSE, dpi=300}
 
 # Plot log metapopulation capacity
 
@@ -516,3 +516,59 @@ log_mp_1 / log_mp_2 / log_mp_3
 
 
 ```
+
+## The effects of habitat configuration on patch distances and areas
+
+Experimental Design: [The effects of habitat configuration on patch distances and areas LINK]()
+
+```{r config_distance_results, echo=FALSE, message=FALSE, warning=FALSE, dpi=300}
+
+rm(list = ls())
+
+library(tidyverse)
+library(cowplot)
+library(patchwork)
+
+df <- read.csv("Results_Folder/Exploring Metapopulation Capacity/Configuration Distance Relationship/config_dist_summary.csv")
+
+p1 <- ggplot(df, aes(x = as.factor(p), y = edge_density)) +
+  geom_boxplot() +
+  labs(x = "p", y = "Edge Density") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme_cowplot()
+
+p2 <- ggplot(df, aes(x = as.factor(p), y = mean_distance )) +
+  geom_boxplot() +
+  labs(x = "p", y = "Mean inter-patch Distance") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme_cowplot()
+
+p3 <- ggplot(df, aes(x = as.factor(p), y = mean_nearest_distance )) +
+  geom_boxplot() +
+  labs(x = "p", y = "Mean nearest-neighbour Distance") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme_cowplot()
+
+p4 <- ggplot(df, aes(x = as.factor(p), y = num_patches )) +
+  geom_boxplot() +
+  labs(x = "p", y = "Number of Patches") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme_cowplot()
+
+p5 <- ggplot(df, aes(x = as.factor(p), y = mean_patch_area )) +
+  geom_boxplot() +
+  labs(x = "p", y = "Mean Habitat Patch Area") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme_cowplot()
+
+p1 + p2 + p3 + p4 + p5
+
+
+```
+
+
