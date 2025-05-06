@@ -4,17 +4,17 @@ rm(list = ls())
 
 # General -----------------------------------------------------------------
 
-install.packages("devtools") # install devtools for packages not on CRAN
-library(devtools)
-
-# install packages
-install.packages(c("tidyverse", "sf", "units", "ggplot2", "gganimate",
-                   "igraph", "raster", "landscapemetrics", "units"))
-
-# install packages not on CRAN
-devtools::install_github("ropensci/NLMR")
-install.packages('RandomFields', repos =
-                   'https://predictiveecology.r-universe.dev', type = 'source')
+# install.packages("devtools") # install devtools for packages not on CRAN
+# library(devtools)
+# 
+# # install packages
+# install.packages(c("tidyverse", "sf", "units", "ggplot2", "gganimate",
+#                    "igraph", "raster", "landscapemetrics", "units"))
+# 
+# # install packages not on CRAN
+# devtools::install_github("ropensci/NLMR")
+# install.packages('RandomFields', repos =
+#                    'https://predictiveecology.r-universe.dev', type = 'source')
 
 # load packages
 library(tidyverse)

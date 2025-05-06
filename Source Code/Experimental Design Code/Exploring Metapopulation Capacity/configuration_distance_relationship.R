@@ -31,9 +31,8 @@ landscape_list <- list()
 
 # Loop through each landscape parameter set and generate a landscape.
 
-for (i in landscape_config_vector) {
+for (landscape_config in landscape_config_vector) {
   
-  landscape_config <- landscape_config_vector[i]
   
   # Generate landscape using nlm_randomcluster
   landscape <- nlm_randomcluster(ncol = x_extent, nrow = y_extent, 
@@ -41,13 +40,16 @@ for (i in landscape_config_vector) {
                                  p = landscape_config, 
                                  ai = c((1 - ai), ai))
   
+  
   # Coerce to data frame
   landscape_df <- rasterToPoints(landscape, spatial = TRUE)
   landscape_df <- as.data.frame(landscape_df)
   
+  
   # Rename columns
   colnames(landscape_df) <- c("layer", "x", "y")
   landscape_df$layer <- as.factor(landscape_df$layer)
+  
   
   # Save to list
   name <- paste0("landscape_config_", landscape_config)
@@ -124,19 +126,19 @@ distance_matrices <- list()
 summary_data <- data.frame()
 
 # Loop through each config
-for (config in landscape_config_vector) {
+for (landscape_config in landscape_config_vector) {
   
-  config_name <- paste0("config_", config)
+  config_name <- paste0("config_", landscape_config)
   landscape_list[[config_name]] <- list()
   distance_matrices[[config_name]] <- list()
   
-  for (replicate in 1:2) {  # Change to 100 when you're ready
+  for (replicate in 1:25) {  # Change to 100 when you're ready
     
     # Generate landscape
     landscape <- nlm_randomcluster(
       ncol = x_extent, nrow = y_extent, 
       resolution = resolution, 
-      p = config, 
+      p = landscape_config, 
       ai = c((1 - ai), ai)
     )
     
@@ -159,6 +161,10 @@ for (config in landscape_config_vector) {
     landscape_df$patch <- terra::extract(clumps, landscape_df)
     landscape_df <- as.data.frame(landscape_df)
     
+    # Calculate patch data
+    num_patches <- length(unique(landscape_df$patch))-1
+    mean_patch_area <- (sum(landscape_df$layer == 1))/num_patches
+    
     # Create patch raster
     patch_raster <- rasterFromXYZ(landscape_df[, c("x", "y", "patch")])
     res(patch_raster) <- c(1, 1)
@@ -173,20 +179,32 @@ for (config in landscape_config_vector) {
     dist_vector <- as.numeric(dist_matrix[lower.tri(dist_matrix)])
     mean_distance <- mean(dist_vector)
     
+    # nearest-neighbour distances
+    diag(dist_matrix) <- NA # set diagonal to NAs
+    
+    # Find the nearest neighbor distance for each patch
+    nearest_neighbors <- apply(dist_matrix, 1, min, na.rm = TRUE)
+    
+    # Mean nearest neighbor distance
+    mean_nearest_distance <- mean(nearest_neighbors, na.rm = TRUE)
+    
     # Store results
     landscape_list[[config_name]][[replicate]] <- landscape_df
     distance_matrices[[config_name]][[replicate]] <- dist_vector
     
     # Add to summary data frame
     summary_data <- rbind(summary_data, data.frame(
-      p = config,
+      p = landscape_config,
       replicate = replicate,
       edge_density = edge_density,
-      mean_distance = mean_distance
+      mean_distance = mean_distance,
+      mean_nearest_distance = mean_nearest_distance,
+      num_patches = num_patches,
+      mean_patch_area = mean_patch_area
     ))
     
     # Progress message
-    cat("Finished config:", config, "replicate:", replicate, "\n")
+    cat("Finished config:", landscape_config, "replicate:", replicate, "\n")
   }
 }
 
@@ -195,14 +213,22 @@ for (config in landscape_config_vector) {
 
 
 # unwrap list to get a data frame
-landscape_df <- bind_rows(
-  lapply(names(landscape_list), function(name) {
-    df <- landscape_list[[name]]
-    # Extract config and ai from the name
-    config_val <- str_extract(name, "(?<=landscape_config_)[0-9.]+") %>% as.numeric()
+landscape_df_final <- bind_rows(
+  lapply(names(landscape_list), function(config_name) {
+    # Combine the replicates into a single data frame
+    df <- bind_rows(landscape_list[[config_name]], .id = "replicate")
     
+    # Extract the numeric config value from the name "config_0.1", etc.
+    config_val <- as.numeric(str_remove(config_name, "config_"))
+    
+    # Add config value as a new column
     df$landscape_config <- config_val
     return(df)
   }),
-  .id = "id"
+  .id = "config_id"
 )
+
+# save results as csv
+
+write.csv(summary_data, "C:/Users/bs20brkh/OneDrive - University of Leeds/PhD/Topic 1/metapop_capacity_matrix/Results/Results_Folder/Exploring Metapopulation Capacity/Configuration Distance Relationship/config_dist_summary.csv")
+write.csv(landscape_df_final, "C:/Users/bs20brkh/OneDrive - University of Leeds/PhD/Topic 1/metapop_capacity_matrix/Results/Results_Folder/Exploring Metapopulation Capacity/Configuration Distance Relationship/config_dist_landscapes.csv")
