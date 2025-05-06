@@ -181,21 +181,29 @@ For the following possible responses and dispersal abilities for a species with 
 As an example, if we assume that dispersal decreases with increased relative yield with a linear, concave, or convex response given by the following equations:
 
 
-*Linear*
+Linear:
 
 $$
 Dispersal\, factor = s(1-Y) + a 
 $$
-*Concave*
+
+
+Concave:
+
 
 $$
 Dispersal\, factor = 1-Y^2s +a
 $$
-*Convex*
+
+
+Convex:
+
 
 $$
 Dispersal\, factor = (e^{10(1 - y)} \cdot s) + s_2 + a
 $$
+
+
 where $s$, $s_2$ and $a$ are constants, and the dispersal factor is the factor that is multiplied by the baseline (relative yield = 1) mean dispersal distance to give the actual mean dispersal distance.
 
 
