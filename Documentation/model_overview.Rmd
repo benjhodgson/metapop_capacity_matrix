@@ -21,13 +21,13 @@ To determine whether a given landscape can support a metapopulation indefinitely
 
 A species will persist indefinitely if
 
-\begin{equation}
+$$
 \lambda_{M} > \delta
-\end{equation}
+$$
 where 
-\begin{equation}
+$$
 \delta = \frac{e}{c}
-\end{equation}
+$$
 
 The landscape matrix used to calculate metapopulation capacity is defined as:
 
@@ -182,14 +182,17 @@ As an example, if we assume that dispersal decreases with increased relative yie
 
 
 *Linear*
+
 $$
 Dispersal\, factor = s(1-Y) + a 
 $$
 *Concave*
+
 $$
 Dispersal\, factor = 1-Y^2s +a
 $$
 *Convex*
+
 $$
 Dispersal\, factor = (e^{10(1 - y)} \cdot s) + s_2 + a
 $$

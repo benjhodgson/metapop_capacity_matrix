@@ -368,7 +368,6 @@ for (j in 1:nrow(movement_combos)) {
   
   # Run Model ---------------------------------------------------------------
   
-  num_reps <- 1 # specify the number of repeats
 
   set.seed(123) # sets the overall model seed so that landscapes are consistent between model runs
   

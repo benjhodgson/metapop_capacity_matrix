@@ -118,19 +118,19 @@ landscape_config_vector <- c(0.01, 0.1, 0.2, 0.4) # level of patch aggregation
 ai <- 0.15 #  random proportion of landscape that is habitat between species bounds
 
 
-
 # Set up list to store everything
 landscape_list <- list()
 distance_matrices <- list()
+summary_data <- data.frame()
 
-# Nested loop: for each config, generate 100 replicates
+# Loop through each config
 for (config in landscape_config_vector) {
   
   config_name <- paste0("config_", config)
   landscape_list[[config_name]] <- list()
   distance_matrices[[config_name]] <- list()
   
-  for (replicate in 1:2) {
+  for (replicate in 1:2) {  # Change to 100 when you're ready
     
     # Generate landscape
     landscape <- nlm_randomcluster(
@@ -143,60 +143,49 @@ for (config in landscape_config_vector) {
     # Identify connected patches
     clumps <- clump(landscape, directions = 8)
     
-    # Coerce to data frame
+    # Calculate edge density
+    edge_density <- as.numeric(
+      lsm_l_ed(landscape, count_boundary = FALSE, directions = 8)[6]
+    )
+    
+    # Convert raster to data frame
     landscape_df <- rasterToPoints(landscape, spatial = TRUE) %>%
       as.data.frame()
     colnames(landscape_df) <- c("layer", "x", "y")
     landscape_df$layer <- as.factor(landscape_df$layer)
     
-    # Add patch numbers
+    # Add clump IDs (patches)
     coordinates(landscape_df) <- ~x + y 
-    landscape_df$patch <- extract(clumps, landscape_df)
+    landscape_df$patch <- terra::extract(clumps, landscape_df)
     landscape_df <- as.data.frame(landscape_df)
     
-    # Rasterise patch numbers
-    patch_raster <- landscape_df %>%
-      dplyr::select(x, y, patch) %>%
-      rasterFromXYZ()
+    # Create patch raster
+    patch_raster <- rasterFromXYZ(landscape_df[, c("x", "y", "patch")])
     res(patch_raster) <- c(1, 1)
     crs(patch_raster) <- CRS("+proj=utm +zone=33 +datum=WGS84")
     
-    # Convert to polygons
-    habitat_polygons <- rasterToPolygons(
-      patch_raster, fun = function(x) {x > 0}, dissolve = TRUE
-    )
+    # Convert raster to polygons and compute distance matrix
+    habitat_polygons <- rasterToPolygons(patch_raster, fun = function(x) {x > 0}, dissolve = TRUE)
     habitat_polygons_sf <- st_as_sf(habitat_polygons)
-    
-    # Distance matrix
     dist_matrix <- st_distance(habitat_polygons_sf)
     
-    # Patch ID remapping
-    new_patch_numbers <- habitat_polygons_sf %>%
-      st_drop_geometry() %>%
-      mutate(index = 1:n())
-    
-    # Merge patch data
-    landscape_df <- landscape_df %>%
-      left_join(new_patch_numbers, by = c("patch" = "patch")) %>%
-      dplyr::select(-patch) %>%
-      rename(patch = index)
-    
-    landscape_df$patch <- as.factor(landscape_df$patch)
-    
-    # Calculate patch area
-    patch_area_df <- landscape_df %>%
-      filter(layer == 1) %>%
-      group_by(patch) %>%
-      summarise(area = n())
-    
-    # Inter-patch distances (lower triangle only)
+    # Inter-patch distances
     dist_vector <- as.numeric(dist_matrix[lower.tri(dist_matrix)])
+    mean_distance <- mean(dist_vector)
     
     # Store results
     landscape_list[[config_name]][[replicate]] <- landscape_df
     distance_matrices[[config_name]][[replicate]] <- dist_vector
     
-    # Optional: print progress
+    # Add to summary data frame
+    summary_data <- rbind(summary_data, data.frame(
+      p = config,
+      replicate = replicate,
+      edge_density = edge_density,
+      mean_distance = mean_distance
+    ))
+    
+    # Progress message
     cat("Finished config:", config, "replicate:", replicate, "\n")
   }
 }
