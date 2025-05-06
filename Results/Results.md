@@ -41,3 +41,9 @@ Experimental Design: [The effects of habitat configuration on patch distances an
 ![](Results_files/figure-html/config_distance_results-1.png)<!-- -->
 
 
+## The effects of habitat cover on patch distances and areas
+
+Experimental Design: [The effects of habitat cover on patch distances and areas LINK]()
+
+![](Results_files/figure-html/cover_distance_results-1.png)<!-- -->
+

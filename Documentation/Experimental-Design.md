@@ -52,9 +52,14 @@ An example of each of these landscapes can be seen here:
 
 There will be 100 unique landscapes for each p value.
 
-## The effects of habitat cover on mean inter-patch distance
+Results: [The effects of habitat configuration on patch distances and areas Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-effects-of-habitat-configuration-on-patch-distances-and-areas)
 
+## The effects of habitat cover on patch distances and areas
 Habitat area will rarely change without also affecting the nearest distance between patches. Increasing the habitat cover, therefore will likely indirectly affect metapopulation capacity by decreasing the mean inter-patch distance between habitat patches. To explore the effect of habitat cover on  
+
+
+![](Experimental-Design_files/figure-html/cover_distance_landscapes-1.png)<!-- -->
+
 
 
 
