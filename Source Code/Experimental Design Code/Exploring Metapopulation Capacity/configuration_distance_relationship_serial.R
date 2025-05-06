@@ -230,5 +230,5 @@ landscape_df_final <- bind_rows(
 
 # save results as csv
 
-write.csv(summary_data, "C:/Users/bs20brkh/OneDrive - University of Leeds/PhD/Topic 1/metapop_capacity_matrix/Results/Results_Folder/Exploring Metapopulation Capacity/Configuration Distance Relationship/config_dist_summary.csv")
-write.csv(landscape_df_final, "C:/Users/bs20brkh/OneDrive - University of Leeds/PhD/Topic 1/metapop_capacity_matrix/Results/Results_Folder/Exploring Metapopulation Capacity/Configuration Distance Relationship/config_dist_landscapes.csv")
+write.csv(summary_data, "Results/Results_Folder/Exploring Metapopulation Capacity/Configuration Distance Relationship/config_dist_summary.csv")
+write.csv(landscape_df_final, "Results/Results_Folder/Exploring Metapopulation Capacity/Configuration Distance Relationship/config_dist_landscapes.csv")

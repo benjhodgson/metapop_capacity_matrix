@@ -37,15 +37,18 @@ The distance matrix is calculated, however this is then multiplied by a scaling 
 Results: [The independent effects of inter-patch distance on metapopulation capacity Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-independent-effects-of-inter-patch-distance-on-metapopulation-capacity)
 
 
-## The effects of habitat configuration on mean inter-patch distance
+## The effects of habitat configuration on patch distances and areas
 
-The level of spatial aggregation of habitat patches (habitat configuration) will affect the mean inter-patch distance between habitat patches. To explore this relationship, random landscapes with varying values of p will be generated and the edge density (a measure of spatial aggregation), inter-patch distances will be recorded. 
+The level of spatial aggregation of habitat patches (habitat configuration) will affect the mean inter-patch distance between habitat patches. To explore this relationship, random landscapes with varying values of p will be generated and the edge density (a measure of spatial aggregation), mean nearest-neighbour distance, mean inter-patch distance, number of habitat patches, and mean habitat patch area will be recorded. 
 
 Landscapes will be 100 x 100 with a set habitat proportion of 0.15.
 
 p values, which dictate the level of spatial aggregation will be 0.01, 0.1, 0.2, 0.4.
 
 An example of each of these landscapes can be seen here:
+
+![](Experimental-Design_files/figure-html/config_distance_landscapes-1.png)<!-- -->
+
 
 There will be 100 unique landscapes for each p value.
 
