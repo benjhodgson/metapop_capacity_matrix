@@ -11,7 +11,7 @@ date: "2025-04-24"
 Return to Model README: [README](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/README.md)
 
 # Exploring Metapopulation Capacity
-Source Code: [Exploring Metapopulation Capacity Code](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Source_Code_Index.md#Exploring-Metapopulation-Capacity)
+Source Code: [Exploring Metapopulation Capacity - Code](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Source_Code_Index.md#Exploring-Metapopulation-Capacity)
 
 Before considering the effects of matrix quality, it is important to understand how metapopulation capacity changes with landscape structure. That is, how do habitat cover and habitat configuration independently, and interactively, affect metapopulation capacity.
 
@@ -84,7 +84,7 @@ p3 + p2 + p1
 
 The metapopulation capacity is then calculated for each of the three arrangements for landscapes as the area of each habitat patch increases from 1 to 500. The distances between each habitat patch remains constant, despite the area of the habitat patches increasing. Alpha was set at 0.05, which equates to a mean dispersal distance of 20 units.
 
-Results: [The independent effects of habitat cover on metapopulation capacity Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-independent-effects-of-habitat-cover-on-metapopulation-capacity)
+Results: [The independent effects of habitat cover on metapopulation capacity- Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-independent-effects-of-habitat-cover-on-metapopulation-capacity)
 
 
 ## The independent effects of inter-patch distance on metapopulation capacity 
@@ -155,7 +155,7 @@ p3 + p2 + p1
 
 The distance matrix is calculated, however this is then multiplied by a scaling factor between 1 and 5 and the metapopulation capacity is calculated.
 
-Results: [The independent effects of inter-patch distance on metapopulation capacity Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-independent-effects-of-inter-patch-distance-on-metapopulation-capacity)
+Results: [The independent effects of inter-patch distance on metapopulation capacity - Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-independent-effects-of-inter-patch-distance-on-metapopulation-capacity)
 
 
 ## The effects of habitat configuration on patch distances and areas
@@ -272,7 +272,7 @@ ggplot(landscape_df, aes(x = x, y = y, fill = layer)) +
 
 There will be 100 unique landscapes for each p value.
 
-Results: [The effects of habitat configuration on patch distances and areas Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-effects-of-habitat-configuration-on-patch-distances-and-areas)
+Results: [The effects of habitat configuration on patch distances and areas - Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-effects-of-habitat-configuration-on-patch-distances-and-areas)
 
 ## The effects of habitat cover on patch distances and areas
 Habitat area will rarely change without also affecting the nearest distance between patches. Increasing the habitat cover, therefore will likely indirectly affect metapopulation capacity by decreasing the mean inter-patch distance between habitat patches. To explore the effect of habitat cover on  
@@ -384,6 +384,8 @@ ggplot(landscape_df, aes(x = x, y = y, fill = layer)) +
 
 ```
 
+
+Results: [The effects of habitat cover on patch distances and areas - Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-effects-of-habitat-cover-on-patch-distances-and-areas)
 
 
 
