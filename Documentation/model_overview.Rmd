@@ -207,7 +207,7 @@ $$
 where $s$, $s_2$ and $a$ are constants, and the dispersal factor is the factor that is multiplied by the baseline (relative yield = 1) mean dispersal distance to give the actual mean dispersal distance.
 
 
-And we assume that dispersal ability may increase by either *1.5x*, *5x* or *10x*, we can plot the following dispersal-yield functions:
+And we assume that dispersal ability may increase by either 50%, 500% or 1000%, we can plot the following dispersal-yield functions:
 
 
 ```{r Dispersal-Yield_Functions, echo=FALSE, dpi=300, message=FALSE, warning=FALSE}
