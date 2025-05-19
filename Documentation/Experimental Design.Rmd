@@ -407,7 +407,7 @@ Each movement scenario was run within a factorial design of dispersal and aggreg
 ```{r Factorial Design, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(knitr)
 
-df <- data.frame( "Dispersal / Aggregation" = c("**High Dispersal**", "**Medium Dispersal**", "**Low Dispersal**", "**Very Low Dispersal**"), "High Aggregation" = c("High agg/High disp", "High agg/ Mid disp", "High agg/ Low disp", "High agg/ V Low disp"), "Medium Aggregation" = c("Mid agg/ High disp", "Mid agg/ Mid disp", "Low agg/ Mid disp", "Mid agg/ V Low disp"), "Low Aggregation" = c("Low agg/ High disp", "Low agg/ Mid disp", "Low agg/ Low disp", "Low agg/ V Low disp"), check.names = FALSE)
+df <- data.frame( "Dispersal / Aggregation" = c("**Very High Dispersal**", "**High Dispersal**", "**Medium Dispersal**", "**Low Dispersal**", "**Very Low Dispersal**"), "High Aggregation" = c("High agg/ V High disp", "High agg/ High disp", "High agg/ Mid disp", "High agg/ Low disp", "High agg/ V Low disp"), "Medium Aggregation" = c("Mid agg/ V High disp", "Mid agg/ High disp", "Mid agg/ Mid disp", "Low agg/ Mid disp", "Mid agg/ V Low disp"), "Low Aggregation" = c("Low agg/ V High disp", "Low agg/ High disp", "Low agg/ Mid disp", "Low agg/ Low disp", "Low agg/ V Low disp"), check.names = FALSE)
 
 # Create styled table
 kable(df)
@@ -427,8 +427,8 @@ kable(config_df, caption = "Parameters for Habitat Configuration")
 
 ```{r Dispersal Parameters, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 dispersal_df <- data.frame(
-  Configuration = c("High dispersal", "Medium dispersal", "Low dispersal", "Very low dispersal"),
-  "Mean Dispersal Distance at Relative Yield = 1 (km)" = c(5, 1, 0.1, 0.01), check.names = FALSE
+  Configuration = c("Very high dispersal", "High dispersal", "Medium dispersal", "Low dispersal", "Very low dispersal"),
+  "Mean Dispersal Distance at Relative Yield = 1 (km)" = c(10, 5, 1, 0.1, 0.01), check.names = FALSE
 )
 
 # Display Table 2

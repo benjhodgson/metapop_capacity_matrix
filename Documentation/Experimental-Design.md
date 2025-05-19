@@ -81,12 +81,13 @@ Landscapes are 100 x 100 km with a resolution of 0.5 km. Landscapes are conserve
 Each movement scenario was run within a factorial design of dispersal and aggregation scenarios. The dispersal level refers to the mean dispersal distance under a relative yield = 1 landscape. As the relative yield of the matrix reduces, this mean dispersal level will increase in line with the movement scenario function. 
 
 
-|Dispersal / Aggregation |High Aggregation     |Medium Aggregation  |Low Aggregation     |
-|:-----------------------|:--------------------|:-------------------|:-------------------|
-|**High Dispersal**      |High agg/High disp   |Mid agg/ High disp  |Low agg/ High disp  |
-|**Medium Dispersal**    |High agg/ Mid disp   |Mid agg/ Mid disp   |Low agg/ Mid disp   |
-|**Low Dispersal**       |High agg/ Low disp   |Low agg/ Mid disp   |Low agg/ Low disp   |
-|**Very Low Dispersal**  |High agg/ V Low disp |Mid agg/ V Low disp |Low agg/ V Low disp |
+|Dispersal / Aggregation |High Aggregation      |Medium Aggregation   |Low Aggregation      |
+|:-----------------------|:---------------------|:--------------------|:--------------------|
+|**Very High Dispersal** |High agg/ V High disp |Mid agg/ V High disp |Low agg/ V High disp |
+|**High Dispersal**      |High agg/ High disp   |Mid agg/ High disp   |Low agg/ High disp   |
+|**Medium Dispersal**    |High agg/ Mid disp    |Mid agg/ Mid disp    |Low agg/ Mid disp    |
+|**Low Dispersal**       |High agg/ Low disp    |Low agg/ Mid disp    |Low agg/ Low disp    |
+|**Very Low Dispersal**  |High agg/ V Low disp  |Mid agg/ V Low disp  |Low agg/ V Low disp  |
 
 The parameters used for the factorial design are as follows: 
 
@@ -102,12 +103,13 @@ Table: Parameters for Habitat Configuration
 
 Table: Parameters for Mean Dispersal at Relative Yield = 1
 
-|Configuration      | Mean Dispersal Distance at Relative Yield = 1 (km)|
-|:------------------|--------------------------------------------------:|
-|High dispersal     |                                               5.00|
-|Medium dispersal   |                                               1.00|
-|Low dispersal      |                                               0.10|
-|Very low dispersal |                                               0.01|
+|Configuration       | Mean Dispersal Distance at Relative Yield = 1 (km)|
+|:-------------------|--------------------------------------------------:|
+|Very high dispersal |                                              10.00|
+|High dispersal      |                                               5.00|
+|Medium dispersal    |                                               1.00|
+|Low dispersal       |                                               0.10|
+|Very low dispersal  |                                               0.01|
 
 ### Movement Scenarios
 
