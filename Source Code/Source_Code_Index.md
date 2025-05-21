@@ -63,3 +63,22 @@ Parallel Code: [The effects of habitat cover on patch distances and areas - Code
 HPC Code (Parallel): [The effects of habitat cover on patch distances and areas - Code](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Experimental%20Design%20Code/Exploring%20Metapopulation%20Capacity/cover_distance_relationship_parallel_HPC.R)
 
 See: [The effects of habitat cover on patch distances and areas - Methods](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/Experimental-Design.md#the-effects-of-habitat-cover-on-patch-distances-and-areas)
+
+## Matrix Permeability and Metapopulation Capacity
+
+The code for Model 1 can be found in the following folder: [Model 1 - Code LINK]()
+
+This code folder is separated into sub-folders by the level of habitat aggregation: ha - high aggregation, ma - medium aggregation, la - low aggregation.
+Each R script is a unique combination of habitat aggregation level and species dispersal level.
+
+See: [The effect of Matrix Quality on Metapopulation Capacity LINK]()
+
+# Source Code for Results and Data Analysis
+
+## Matrix Permeability and Metapopulation Capacity
+
+### Data extraction from model outputs
+
+Model 1 Results Extraction: [Model 1 Results Extraction - Code LINK]()
+
+Model 1 Graphs: [Model_1_Graphs - Code LINK]()
