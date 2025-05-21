@@ -711,7 +711,7 @@ dispersal_label <- function(df_name) {
 ### Landscapes with high levels of habitat aggregation
 
 High levels of habitat aggregation with a maximum dispersal distance increase of 50%
-```{r matrix_quality_ha_50, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r matrix_quality_ha_50, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.height=8, dpi=300}
 # Plot for 50% increase ---------------------------------------------------
 
 # Filter for 50% increases
@@ -753,7 +753,7 @@ combined_plot
 ```
 
 High levels of habitat aggregation with a maximum dispersal distance increase of 500%
-```{r matrix_quality_ha_500, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r matrix_quality_ha_500, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.height=8, dpi=300}
 
 # Plot for 500% increase ---------------------------------------------------
 
@@ -796,7 +796,7 @@ combined_plot
 ```
 
 High levels of habitat aggregation with a maximum dispersal distance increase of 5000%
-```{r matrix_quality_ha_5000, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r matrix_quality_ha_5000, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.height=8, dpi=300}
 
 # Plot for 5000% increase ---------------------------------------------------
 
@@ -842,7 +842,7 @@ combined_plot
 ### Landscapes with medium levels of habitat aggregation
 
 Medium levels of habitat aggregation with a maximum dispersal distance increase of 50%
-```{r matrix_quality_ma_50, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r matrix_quality_ma_50, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.height=8, dpi=300}
 
 # Plot for 50% increase ---------------------------------------------------
 
@@ -886,7 +886,7 @@ combined_plot
 ```
 
 Medium levels of habitat aggregation with a maximum dispersal distance increase of 500%
-```{r matrix_quality_ma_500, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r matrix_quality_ma_500, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.height=8, dpi=300}
 
 
 # Plot for 500% increase ---------------------------------------------------
@@ -932,7 +932,7 @@ combined_plot
 ```
 
 Medium levels of habitat aggregation with a maximum dispersal distance increase of 5000%
-```{r matrix_quality_ma_5000, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r matrix_quality_ma_5000, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.height=8, dpi=300}
 
 
 # Plot for 5000% increase ---------------------------------------------------
@@ -981,7 +981,7 @@ combined_plot
 ### Landscapes with medium levels of habitat aggregation
 
 Low levels of habitat aggregation with a maximum dispersal distance increase of 50%
-```{r matrix_quality_la_50, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r matrix_quality_la_50, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.height=8, dpi=300}
 
 # Low Aggregation Plots --------------------------------------------------
 
@@ -1029,7 +1029,7 @@ combined_plot
 ```
 
 Low levels of habitat aggregation with a maximum dispersal distance increase of 500%
-```{r matrix_quality_la_500, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r matrix_quality_la_500, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.height=8, dpi=300}
 
 # Plot for 500% increase ---------------------------------------------------
 
@@ -1075,7 +1075,7 @@ combined_plot
 ```
 
 Low levels of habitat aggregation with a maximum dispersal distance increase of 5000%
-```{r matrix_quality_la_5000, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r matrix_quality_la_5000, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.height=8, dpi=300}
 
 
 # Plot for 5000% increase ---------------------------------------------------
