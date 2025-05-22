@@ -95,12 +95,25 @@ $$
 where $s$, $s_2$ and $a$ are constants, and the dispersal factor is the factor that is multiplied by the baseline (relative yield = 1) mean dispersal distance to give the actual mean dispersal distance.
 
 
-And we assume that dispersal ability may increase by either *1.5x*, *5x* or *10x*, we can plot the following dispersal-yield functions:
+And we assume that dispersal ability may increase by either 50%, 500% or 1000%, we can plot the following dispersal-yield functions:
 
 
 ![](model_overview_files/figure-html/Dispersal-Yield_Functions-1.png)<!-- -->
 
 Species may have more complex dispersal responses to yield, however, these three basic responses should allow us to see the effects of matrix quality on species persistence.
+
+
+
+
+## Metapopulation Capacity and Metapopulation Persistence
+
+The dispersal factor can be multiplied by the mean dispersal distance of the species at Relative yield = 1 to give the landscape-specific mean dispersal distance. This is then used to calculate $\alpha$ and subsequently metapopulation capacity. Normally, when dispersal ability is independent of habitat cover, metapopulation capacity can be used as a comparison between landscapes in regard to their ability to support a given metapopulation. However, the condition for metapopulation persistence, $\lambda_{M} > \delta$, depends on the threshold value $\delta$ which is determined by the species colonisation constant $c$. This colonisation constant may also change with habitat cover, meaning that it may not always be the case that landscapes with higher or similar metapopulation capacities will be more suitable for metapopulation persistence. 
+
+
+If we assume the colonisation constant $c$ changes along the same curves as mean dispersal distance and that $c$ is 0.1 at Relative yield = 1 and that the extinction constant $e$ is 0.1, $delta$ can be visualised against habitat cover as:
+
+![](model_overview_files/figure-html/Delta_Functions-1.png)<!-- -->![](model_overview_files/figure-html/Delta_Functions-2.png)<!-- -->![](model_overview_files/figure-html/Delta_Functions-3.png)<!-- -->
+
 
 
 

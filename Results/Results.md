@@ -91,3 +91,7 @@ Low levels of habitat aggregation with a maximum dispersal distance increase of 
 ![](Results_files/figure-html/matrix_quality_la_5000-1.png)<!-- -->
 
 
+## The effect of matrix quality on metapopulation persistence
+
+![](Results_files/figure-html/gam_differences-1.png)<!-- -->![](Results_files/figure-html/gam_differences-2.png)<!-- -->![](Results_files/figure-html/gam_differences-3.png)<!-- -->![](Results_files/figure-html/gam_differences-4.png)<!-- -->![](Results_files/figure-html/gam_differences-5.png)<!-- -->![](Results_files/figure-html/gam_differences-6.png)<!-- -->![](Results_files/figure-html/gam_differences-7.png)<!-- -->![](Results_files/figure-html/gam_differences-8.png)<!-- -->![](Results_files/figure-html/gam_differences-9.png)<!-- -->
+

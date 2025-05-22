@@ -1119,3 +1119,62 @@ combined_plot
 ```
 
 
+## The effect of matrix quality on metapopulation persistence
+
+```{r gam_differences, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, dpi=300, fig.height=8}
+rm(list = ls())
+
+library(tidyverse)
+
+diff_results <- read.csv("Results_Folder/Matrix Permeability and Metapopulation Capacity/Model 1/GAM/gam_differences.csv")
+
+# Plot GAM differences ----------------------------------------------------
+
+plot_diff_vs_habitat <- function(diff_df, source_group, type, mag, delta_prefix = "delta_") {
+  df_sub <- diff_df[diff_df$source_1 %in% source_group & grepl(delta_prefix, diff_df$source_2), ]
+  
+  # Human-readable labels
+  type_label <- switch(type,
+                       "ha" = "Low Aggregation",
+                       "ma" = "Medium Aggregation",
+                       "la" = "High Aggregation",
+                       type)
+  mag_label <- paste0(mag, "% Movement Increase")
+  
+  ggplot(df_sub, aes(x = habitat_cover, y = abs_diff, color = source_2)) +
+    geom_line(alpha = 0.8) +
+    labs(
+      title = paste("Absolute Difference in Metapopulation Capacity –", type_label, "–", mag_label),
+      x = "Habitat Cover",
+      y = "Absolute Difference",
+      color = "Delta Scenario"
+    ) +
+    theme_minimal() +
+    facet_wrap(~ source_1, ncol = 3, scales = "free_y") +
+    theme(legend.position = "bottom")
+}
+
+
+# Extract unique source_1 names
+unique_sources <- unique(diff_results$source_1)
+
+# Get combinations of aggregation type and movement ability
+types <- c("ha", "ma", "la")
+magnitudes <- c("50", "500", "5000")
+
+plot_list <- list()
+
+for (type in types) {
+  for (mag in magnitudes) {
+    pattern <- paste0("^", type, "_.*_", mag, "_")
+    group_sources <- unique_sources[grepl(pattern, unique_sources)]
+    
+    if (length(group_sources) == 0) next
+    
+    p <- plot_diff_vs_habitat(diff_results, source_group = group_sources, type = type, mag = mag)
+    print(p)
+    plot_list[[paste0(type, "_", mag)]] <- p
+  }
+}
+```
+
