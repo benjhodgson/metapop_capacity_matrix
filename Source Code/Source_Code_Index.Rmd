@@ -66,19 +66,23 @@ See: [The effects of habitat cover on patch distances and areas - Methods](https
 
 ## Matrix Permeability and Metapopulation Capacity
 
-The code for Model 1 can be found in the following folder: [Model 1 - Code LINK]()
+The code for Model 1 can be found in the following folder: [Model 1 - Code Folder](https://github.com/benjhodgson/metapop_capacity_matrix/tree/main/Source%20Code/Experimental%20Design%20Code/Matrix%20Permeability%20and%20Metapopulation%20Capacity/Model%201)
 
 This code folder is separated into sub-folders by the level of habitat aggregation: ha - high aggregation, ma - medium aggregation, la - low aggregation.
 Each R script is a unique combination of habitat aggregation level and species dispersal level.
 
-See: [The effect of Matrix Quality on Metapopulation Capacity LINK]()
+See: [The effect of Matrix Quality on Metapopulation Capacity - Methods](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Documentation/Experimental-Design.md#the-effect-of-matrix-quality-on-metapopulation-capacity-and-persistence)
 
 # Source Code for Results and Data Analysis
 
 ## Matrix Permeability and Metapopulation Capacity
 
-### Data extraction from model outputs
+### Data extraction and analysis
 
-Model 1 Results Extraction: [Model 1 Results Extraction - Code LINK]()
+Model 1 Results Extraction: [Model 1 Results Extraction - Code](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Results%20Code/Matrix%20Permeability%20and%20Metapopulation%20Capacity/Model%201/Model_1_Results_Extraction.R)
 
-Model 1 Graphs: [Model_1_Graphs - Code LINK]()
+Model 1 Metapopulation Capacity/ Cover Graphs: [Model 1 Graphs - Code](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Results%20Code/Matrix%20Permeability%20and%20Metapopulation%20Capacity/Model%201/Model_1_Graphs.R)
+
+Model 1 Metapopulation Persistence Data Analysis and Graphs: [Model 1 Persistence](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Results%20Code/Matrix%20Permeability%20and%20Metapopulation%20Capacity/Model%201/Model_1_Persistence.R)
+
+See: [The effect of Matrix Quality on Metapopulation Capacity - Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-effect-of-matrix-quality-on-metapopulation-capacity-and-persistence)

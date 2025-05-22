@@ -440,8 +440,10 @@ kable(dispersal_df, caption = "Parameters for Mean Dispersal at Relative Yield =
 Movement responses to matrix yield follow the three functions described in [](), with mean dispersal distance increases of **10%** (1.1x), **50%** (1.5x), **500%** (6x), **1000%** (11x) and **5000%** (51x) at a relative yield of 0 compared to a relative yield of 1. 
 
 ### Data Analysis
-Results were extracted and saved as csv files using this code: [Model 1 Results Extraction LINK]()
+Results were extracted and saved as csv files using this code: [Model 1 Results Extraction - Code](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Results%20Code/Matrix%20Permeability%20and%20Metapopulation%20Capacity/Model%201/Model_1_Results_Extraction.R)
 
 ## The effect of Matrix Quality on the Threshold of Metapopulation Persistence
+
+Results: [The effect of Matrix Quality on Metapopulation Capacity - Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-effect-of-matrix-quality-on-metapopulation-capacity-and-persistence)
 
 
