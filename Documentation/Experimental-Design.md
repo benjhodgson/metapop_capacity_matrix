@@ -120,6 +120,27 @@ Results were extracted and saved as csv files using this code: [Model 1 Results 
 
 ## The effect of Matrix Quality on the Threshold of Metapopulation Persistence
 
+Multiple thresholds of persistence were used for comparison with metapopulation capacity.
+
+
+Table: Parameters for the extinction constant (e)
+
+|Extinction             |    e|
+|:----------------------|----:|
+|High extinction rate   | 0.50|
+|Medium extinction rate | 0.10|
+|Low extinction rate    | 0.01|
+
+
+Table: Parameters for the colonisation constant (c) at relative yield = 1
+
+|Colonisation             | c at relative yield = 1|
+|:------------------------|-----------------------:|
+|High colonisation rate   |                    0.50|
+|Medium colonisation rate |                    0.10|
+|Low colonisation rate    |                    0.01|
+
+
 Results: [The effect of Matrix Quality on Metapopulation Capacity - Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-effect-of-matrix-quality-on-metapopulation-capacity-and-persistence)
 
 

@@ -91,7 +91,28 @@ Low levels of habitat aggregation with a maximum dispersal distance increase of 
 ![](Results_files/figure-html/matrix_quality_la_5000-1.png)<!-- -->
 
 
-## The effect of matrix quality on metapopulation persistence
+## The effect of matrix quality on metapopulation persistence (Medium Colonisation/ Medium Extinction)
 
 ![](Results_files/figure-html/gam_differences-1.png)<!-- -->![](Results_files/figure-html/gam_differences-2.png)<!-- -->![](Results_files/figure-html/gam_differences-3.png)<!-- -->![](Results_files/figure-html/gam_differences-4.png)<!-- -->![](Results_files/figure-html/gam_differences-5.png)<!-- -->![](Results_files/figure-html/gam_differences-6.png)<!-- -->![](Results_files/figure-html/gam_differences-7.png)<!-- -->![](Results_files/figure-html/gam_differences-8.png)<!-- -->![](Results_files/figure-html/gam_differences-9.png)<!-- -->
+
+
+
+
+
+
+
+## The effect of matrix quality on metapopulation persistence (High Colonisation/ Low Extinction)
+
+![](Results_files/figure-html/gam_differences_h_c_l_e-1.png)<!-- -->![](Results_files/figure-html/gam_differences_h_c_l_e-2.png)<!-- -->![](Results_files/figure-html/gam_differences_h_c_l_e-3.png)<!-- -->![](Results_files/figure-html/gam_differences_h_c_l_e-4.png)<!-- -->![](Results_files/figure-html/gam_differences_h_c_l_e-5.png)<!-- -->![](Results_files/figure-html/gam_differences_h_c_l_e-6.png)<!-- -->![](Results_files/figure-html/gam_differences_h_c_l_e-7.png)<!-- -->![](Results_files/figure-html/gam_differences_h_c_l_e-8.png)<!-- -->![](Results_files/figure-html/gam_differences_h_c_l_e-9.png)<!-- -->
+
+
+
+
+
+
+
+## The effect of matrix quality on metapopulation persistence (Low Colonisation/ High Extinction)
+
+![](Results_files/figure-html/gam_differences_l_c_h_e-1.png)<!-- -->![](Results_files/figure-html/gam_differences_l_c_h_e-2.png)<!-- -->![](Results_files/figure-html/gam_differences_l_c_h_e-3.png)<!-- -->![](Results_files/figure-html/gam_differences_l_c_h_e-4.png)<!-- -->![](Results_files/figure-html/gam_differences_l_c_h_e-5.png)<!-- -->![](Results_files/figure-html/gam_differences_l_c_h_e-6.png)<!-- -->![](Results_files/figure-html/gam_differences_l_c_h_e-7.png)<!-- -->![](Results_files/figure-html/gam_differences_l_c_h_e-8.png)<!-- -->![](Results_files/figure-html/gam_differences_l_c_h_e-9.png)<!-- -->
+
 

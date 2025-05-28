@@ -57,7 +57,7 @@ process_dataset <- function(df, dataset_name, movement_pct, habitat_grid) {
     }
     
     # Fit GAM on log(metapop_cap) ~ s(habitat_cover)
-    gam_model <- gam(log(metapop_cap) ~ s(habitat_cover), data = df_shape)
+    gam_model <- gam((metapop_cap) ~ s(habitat_cover), data = df_shape)
     
     # Predict on habitat grid
     pred_vals <- predict(gam_model, newdata = habitat_grid)
@@ -105,6 +105,7 @@ for(ds_name in dataset_names) {
   }
 }
 
+saveRDS(all_results, file = "Results/Results_Folder/Matrix Permeability and Metapopulation Capacity/Model 1/GAM/model_gam_results_clean")
 
 # Prepare Delta Data ------------------------------------------------------
 
@@ -254,7 +255,7 @@ delta_df$e <- 0.1
 delta_df$delta <- delta_df$e/delta_df$c
 
 
-str(delta_df)
+
 
 
 
@@ -335,7 +336,7 @@ compare_all_predicted_gams <- function(all_results, delta_preds) {
         habitat_cover = df1$habitat_cover,
         source_1 = source1_clean,
         source_2 = source2_clean,
-        abs_diff = exp(df1$pred) - exp(df2$pred),
+        abs_diff = (df1$pred) - (df2$pred),
         abs_ratio = exp(df1$pred) / exp(df2$pred),
         stringsAsFactors = FALSE
       )

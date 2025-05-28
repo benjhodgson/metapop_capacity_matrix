@@ -444,6 +444,33 @@ Results were extracted and saved as csv files using this code: [Model 1 Results 
 
 ## The effect of Matrix Quality on the Threshold of Metapopulation Persistence
 
+Multiple thresholds of persistence were used for comparison with metapopulation capacity.
+
+```{r extinction parameters, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(kableExtra)
+
+extinction_df <- data.frame(
+  Extinction = c("High extinction rate", "Medium extinction rate", "Low extinction rate"),
+  "e" = c(0.5, 0.1, 0.01), check.names = FALSE
+)
+
+# Display Table 2
+kable(extinction_df, caption = "Parameters for the extinction constant (e)")
+```
+
+```{r colonisation constant parameters, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(kableExtra)
+
+colonisation_constant_df <- data.frame(
+  Colonisation = c("High colonisation rate", "Medium colonisation rate", "Low colonisation rate"),
+  "c at relative yield = 1" = c(0.5, 0.1, 0.01), check.names = FALSE
+)
+
+# Display Table 2
+kable(colonisation_constant_df, caption = "Parameters for the colonisation constant (c) at relative yield = 1")
+```
+
+
 Results: [The effect of Matrix Quality on Metapopulation Capacity - Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md#the-effect-of-matrix-quality-on-metapopulation-capacity-and-persistence)
 
 

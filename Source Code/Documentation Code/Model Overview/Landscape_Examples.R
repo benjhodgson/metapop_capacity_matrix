@@ -8,7 +8,7 @@ install.packages("devtools")
 library(devtools)
 
 devtools::install_github("ropensci/NLMR")
-install.packages("tidyverse", "raster")
+# install.packages("tidyverse", "raster")
 
 library(NLMR)
 library(tidyverse)
@@ -85,7 +85,8 @@ custom_labeller <- labeller(
 )
 
 # plot graphs
-ggplot(landscape_df, aes(x = x, y = y, fill = factor(layer))) +
+# p <- 
+  ggplot(landscape_df, aes(x = x, y = y, fill = factor(layer))) +
   geom_raster() +
   scale_fill_manual(
     values = c("0" = "orange", "1" = "darkgreen"),
@@ -109,3 +110,15 @@ ggplot(landscape_df, aes(x = x, y = y, fill = factor(layer))) +
     legend.position = "right",
     plot.title = element_blank()
   )
+
+
+
+
+# ggsave(
+#   filename = "landscape_examples.svg",
+#   plot = p,
+#   width = 10,       
+#   height = 10,       
+#   units = "in",     
+#   device = "svg"
+# )
