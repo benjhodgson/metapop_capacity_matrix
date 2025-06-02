@@ -20,14 +20,21 @@ extract_results_to_df <- function(file_path) {
       habitat_cover <- replicate_data$results$landscape_cover
       metapop_cap <- replicate_data$results$metapop_cap
       alpha <- replicate_data$results$alpha
+      mean_distance <- replicate_data$results$mean_distance
+      edge_density <- replicate_data$results$edge_density
+      num_patches <- replicate_data$results$num_patches
+      mean_patch_size <- replicate_data$results$mean_patch_size
       
-      data_list <- append(data_list, list(c(factor_name, habitat_cover, metapop_cap, alpha)))
+      data_list <- append(data_list, list(c(factor_name, habitat_cover, metapop_cap, alpha, 
+                                            mean_distance, edge_density, num_patches, 
+                                            mean_patch_size)))
     }
   }
   
   # Convert list to data frame
   final_df <- as.data.frame(do.call(rbind, data_list), stringsAsFactors = FALSE)
-  colnames(final_df) <- c("movement", "habitat_cover", "metapop_cap", "alpha")
+  colnames(final_df) <- c("movement", "habitat_cover", "metapop_cap", "alpha", "mean_distance",
+                          "edge_density", "num_patches", "mean_patch_size")
   
   
   # Convert data types
@@ -35,7 +42,10 @@ extract_results_to_df <- function(file_path) {
   final_df$metapop_cap <- as.numeric(final_df$metapop_cap)
   final_df$alpha <- as.numeric(final_df$alpha)
   final_df$movement <- as.factor(final_df$movement)
-  
+  final_df$mean_distance <- as.numeric(final_df$mean_distance)
+  final_df$edge_density <- as.numeric(final_df$edge_density)
+  final_df$num_patches <- as.numeric(final_df$num_patches)
+  final_df$mean_patch_size <- as.numeric(final_df$mean_patch_size)
   
   # Create column for mean dispersal distance
   final_df$mean_dispersal <- 1/final_df$alpha
@@ -56,8 +66,6 @@ extract_results_to_df <- function(file_path) {
   
   return(final_df)
 }
-
-
 
 # Extract data ------------------------------------------------------------
 
