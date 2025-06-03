@@ -16,10 +16,10 @@ Return to Model README: [README](https://github.com/benjhodgson/metapop_capacity
 
 ### Sparing and Sharing with low to very high levels of dispersal
 
-Under high or medium levels of habitat aggregation, a clear sparing response is seen for species with low to very high levels of dispersal (dispersal at relative yield = 1). I.e. the greater the proportion of habitat, the greater the difference between metapopulation capacity and the persistence threshold.
+Under high or medium levels of habitat aggregation, a clear sparing response is seen for species with low to very high levels of dispersal (0.1 - 10 km mean dispersal at relative yield = 1). I.e. the greater the proportion of habitat, the greater the difference between metapopulation capacity and the persistence threshold.
 
 
-For example, here are landscapes for species with medium levels of dispersal with a medium level of aggregation with responses that increase dispersal distance by a maximum of 500%:
+For example, here are the results for the difference between metapopulation capacity and several species persistence threshold responses (delta) for species with medium levels of dispersal, with a medium level of aggregation, and with responses that increase dispersal distance by a maximum of 500%:
 
 ![](Results_Exploration_files/figure-html/1.1.1a-1.png)<!-- -->
 
@@ -108,11 +108,19 @@ The results when the colonisation and extinction constants are equal at a relati
 
 The high levels of metapopulation capacity seen in the sparing responses, mean that differences in delta make little difference to whether a species can persist in a given landscape. 
 
+
+
+Even for the responses with two peaks, little variation is seen between extinction/ colonisation ratios as metapopulation capacity values remain very high. 
+
+
+![](Results_Exploration_files/figure-html/1.2.1a-1.png)<!-- -->
+
+
 ### Sparing and Sharing with very low levels of dispersal
 
-When, however, dispersal is very highly limited (mean dispersal distance of 10m at relative yield = 1), and metapopulation is very small, the extinction/ colonisation ratio becomes much more important. When the extinction/ colonisation ratio is higher at a relative yield of 1, metapopulation persistence becomes possible under more movement scenarios, a greater width of habitat amounts, and more colonisation constant responses. For example, in low aggregation landscapes, with very low species dispersal and a 500% increase in dispersal ability, species persistence is only possible under extreme linear and concave colonisation constant responses if the extinction/ colonisation ratio is low. When the extinction/ colonisation ratio is high at a relative yield of 1, however, species persistence is possible under all colonisation constant responses. This is pattern is quite intuitive, as a high colonisation/constant (0.5/0.01) is almost the same as a 5000% increase in colonisation constant seen in the equal extinction/ colonisation constant scenarios. The increase in colonisation constant with reduced yield is multiplied on top of this baseline 5000%. This means the threshold for persistence is much more reduced and allows for species to persist in more landscapes. 
+When, however, dispersal is very highly limited (mean dispersal distance of 10m at relative yield = 1), and metapopulation is very small, the extinction/ colonisation ratio becomes much more important. When the extinction/ colonisation ratio is lower at a relative yield of 1, metapopulation persistence becomes possible under more movement scenarios, a greater width of habitat amounts, and more colonisation constant responses. For example, in low aggregation landscapes, with very low species dispersal and a 500% increase in dispersal ability, species persistence is only possible under extreme linear and concave colonisation constant responses if the extinction/ colonisation ratio is high. When the extinction/ colonisation ratio is low at a relative yield of 1, however, species persistence is possible under all colonisation constant responses. This is pattern is quite intuitive, as a low extinction/ colonisation constant ratio (0.01/0.5) is almost the same as a 5000% increase in colonisation constant seen in the equal extinction/ colonisation constant scenarios. The increase in colonisation constant with reduced yield is multiplied on top of this baseline 5000%. This means the threshold for persistence is much more reduced and allows for species to persist in more landscapes. 
 
-![](Results_Exploration_files/figure-html/1.2.1a-1.png)<!-- -->![](Results_Exploration_files/figure-html/1.2.1a-2.png)<!-- -->![](Results_Exploration_files/figure-html/1.2.1a-3.png)<!-- -->
+![](Results_Exploration_files/figure-html/1.2.1b-1.png)<!-- -->![](Results_Exploration_files/figure-html/1.2.1b-2.png)<!-- -->![](Results_Exploration_files/figure-html/1.2.1b-3.png)<!-- -->
 
 
 
@@ -122,20 +130,15 @@ When, however, dispersal is very highly limited (mean dispersal distance of 10m 
 A very similar pattern can be seen when landscapes have a medium level of habitat aggregation.
 
 
-![](Results_Exploration_files/figure-html/1.2.1b-1.png)<!-- -->![](Results_Exploration_files/figure-html/1.2.1b-2.png)<!-- -->![](Results_Exploration_files/figure-html/1.2.1b-3.png)<!-- -->
+![](Results_Exploration_files/figure-html/1.2.1c-1.png)<!-- -->![](Results_Exploration_files/figure-html/1.2.1c-2.png)<!-- -->![](Results_Exploration_files/figure-html/1.2.1c-3.png)<!-- -->
 
 
 
 The pattern is further exaggerated in landscapes with high levels of habitat aggregation.
 
 
-![](Results_Exploration_files/figure-html/1.2.1c-1.png)<!-- -->![](Results_Exploration_files/figure-html/1.2.1c-2.png)<!-- -->![](Results_Exploration_files/figure-html/1.2.1c-3.png)<!-- -->
+![](Results_Exploration_files/figure-html/1.2.1d-1.png)<!-- -->![](Results_Exploration_files/figure-html/1.2.1d-2.png)<!-- -->![](Results_Exploration_files/figure-html/1.2.1d-3.png)<!-- -->
 
 
-
-For the responses with two peaks, little variation is seen between extinction/ colonisation ratios as metapopulation capacity values remain very high. 
-
-
-![](Results_Exploration_files/figure-html/1.2.1d-1.png)<!-- -->
 
 
