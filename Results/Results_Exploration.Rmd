@@ -1093,7 +1093,7 @@ The high levels of metapopulation capacity seen in the sparing responses, mean t
 
 ### Sparing and Sharing with very low levels of dispersal
 
-When, however, dispersal is very highly limited (mean dispersal distance of 10m at relative yield = 1), and metapopulation is very small, the colonisation/extinction ratio becomes much more important. 
+When, however, dispersal is very highly limited (mean dispersal distance of 10m at relative yield = 1), and metapopulation is very small, the extinction/ colonisation ratio becomes much more important. When the extinction/ colonisation ratio is higher at a relative yield of 1, metapopulation persistence becomes possible under more movement scenarios, a greater width of habitat amounts, and more colonisation constant responses. For example, in low aggregation landscapes, with very low species dispersal and a 500% increase in dispersal ability, species persistence is only possible under extreme linear and concave colonisation constant responses if the extinction/ colonisation ratio is low. When the extinction/ colonisation ratio is high at a relative yield of 1, however, species persistence is possible under all colonisation constant responses. This is pattern is quite intuitive, as a high colonisation/constant (0.5/0.01) is almost the same as a 5000% increase in colonisation constant seen in the equal extinction/ colonisation constant scenarios. The increase in colonisation constant with reduced yield is multiplied on top of this baseline 5000%. This means the threshold for persistence is much more reduced and allows for species to persist in more landscapes. 
 
 ```{r 1.2.1a, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, dpi=300}
 # Calculate Differences ---------------------------------------------------
@@ -1209,7 +1209,7 @@ p4 <- make_plot(plot_df_convex, "Convex")
 combined_plot <-   p2 + p3 + p4 + plot_layout(ncol = 3) + plot_layout(guides = "collect")
 
 # Display
-main_title = "Low aggregation, Very low dispersal, 5000% increase, High colonisation/ low extinction constants"
+main_title = "Low aggregation, Very low dispersal, 500% increase, High colonisation/ low extinction constants"
 combined_plot + plot_annotation(title = main_title)
 
 
@@ -1315,5 +1315,379 @@ combined_plot + plot_annotation(title = main_title)
 
 
 
+A very similar pattern can be seen when landscapes have a medium level of habitat aggregation.
+
+
+```{r 1.2.1b, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, dpi=300}
+
+# Plot graphs -------------------------------------------------------------
+
+### high colonisation/ medium extinction
+
+
+plot_df <- delta_df_hc %>%
+  filter(aggregation == "ma") %>% 
+  filter(dispersal == "vld")
+
+plot_df_null <- plot_df %>% 
+  filter(movement == "none") %>% 
+  filter(movement_ability == "0")
+
+plot_df_linear <- plot_df %>% 
+  filter(movement == "linear") %>% 
+  filter(movement_ability == "500")
+
+plot_df_convex <- plot_df %>% 
+  filter(movement == "convex") %>% 
+  filter(movement_ability == "500")
+
+plot_df_concave <- plot_df %>% 
+  filter(movement == "concave") %>% 
+  filter(movement_ability == "500")
+
+# Function for plot
+make_plot <- function(data, title) {
+  ggplot(data, aes(x = habitat_cover, y = (difference), color = interaction(delta_movement, delta_movement_ability))) +
+    geom_point() +
+    labs(title = title, x = "Habitat Cover", y = "Difference", color = "Delta Response") +
+    theme_minimal()
+}
+
+# Create plots
+p1 <- make_plot(plot_df_null, "Null")
+p2 <- make_plot(plot_df_linear, "Linear")
+p3 <- make_plot(plot_df_concave, "Concave")
+p4 <- make_plot(plot_df_convex, "Convex")
+
+# Combine plots side by side
+combined_plot <-   p2 + p3 + p4 + plot_layout(ncol = 3) + plot_layout(guides = "collect")
+
+# Display
+main_title = "Medium aggregation, Very low dispersal, 5000% increase, High colonisation/ low extinction constants"
+combined_plot + plot_annotation(title = main_title)
+
+
+### medium colonisation/ medium extinction
+
+
+
+plot_df <- delta_df_mc %>%
+  filter(aggregation == "ma") %>% 
+  filter(dispersal == "vld")
+
+plot_df_null <- plot_df %>% 
+  filter(movement == "none") %>% 
+  filter(movement_ability == "0")
+
+plot_df_linear <- plot_df %>% 
+  filter(movement == "linear") %>% 
+  filter(movement_ability == "500")
+
+plot_df_convex <- plot_df %>% 
+  filter(movement == "convex") %>% 
+  filter(movement_ability == "500")
+
+plot_df_concave <- plot_df %>% 
+  filter(movement == "concave") %>% 
+  filter(movement_ability == "500")
+
+# Function for plot
+make_plot <- function(data, title) {
+  ggplot(data, aes(x = habitat_cover, y = (difference), color = interaction(delta_movement, delta_movement_ability))) +
+    geom_point() +
+    labs(title = title, x = "Habitat Cover", y = "Difference", color = "Delta Response") +
+    theme_minimal()
+}
+
+# Create plots
+p1 <- make_plot(plot_df_null, "Null")
+p2 <- make_plot(plot_df_linear, "Linear")
+p3 <- make_plot(plot_df_concave, "Concave")
+p4 <- make_plot(plot_df_convex, "Convex")
+
+# Combine plots side by side
+combined_plot <-   p2 + p3 + p4 + plot_layout(ncol = 3) + plot_layout(guides = "collect")
+
+# Display
+main_title = "Medium aggregation, Very low dispersal, 500% increase, Medium colonisation/ medium extinction constants"
+combined_plot + plot_annotation(title = main_title)
+
+
+
+
+
+
+### low colonisation/ high extinction
+
+
+
+plot_df <- delta_df_lc %>%
+  filter(aggregation == "ma") %>% 
+  filter(dispersal == "vld")
+
+plot_df_null <- plot_df %>% 
+  filter(movement == "none") %>% 
+  filter(movement_ability == "0")
+
+plot_df_linear <- plot_df %>% 
+  filter(movement == "linear") %>% 
+  filter(movement_ability == "500")
+
+plot_df_convex <- plot_df %>% 
+  filter(movement == "convex") %>% 
+  filter(movement_ability == "500")
+
+plot_df_concave <- plot_df %>% 
+  filter(movement == "concave") %>% 
+  filter(movement_ability == "500")
+
+# Function for plot
+make_plot <- function(data, title) {
+  ggplot(data, aes(x = habitat_cover, y = (difference), color = interaction(delta_movement, delta_movement_ability))) +
+    geom_point() +
+    labs(title = title, x = "Habitat Cover", y = "Difference", color = "Delta Response") +
+    theme_minimal()
+}
+
+# Create plots
+p1 <- make_plot(plot_df_null, "Null")
+p2 <- make_plot(plot_df_linear, "Linear")
+p3 <- make_plot(plot_df_concave, "Concave")
+p4 <- make_plot(plot_df_convex, "Convex")
+
+# Combine plots side by side
+combined_plot <-   p2 + p3 + p4 + plot_layout(ncol = 3) + plot_layout(guides = "collect")
+
+# Display
+main_title = "Medium aggregation, Very low dispersal, 500% increase, Low colonisation/ high extinction constants"
+combined_plot + plot_annotation(title = main_title)
+
+```
+
+
+
+The pattern is further exaggerated in landscapes with high levels of habitat aggregation.
+
+
+```{r 1.2.1c, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, dpi=300}
+
+# Plot graphs -------------------------------------------------------------
+
+### high colonisation/ medium extinction
+
+
+plot_df <- delta_df_hc %>%
+  filter(aggregation == "ha") %>% 
+  filter(dispersal == "vld")
+
+plot_df_null <- plot_df %>% 
+  filter(movement == "none") %>% 
+  filter(movement_ability == "0")
+
+plot_df_linear <- plot_df %>% 
+  filter(movement == "linear") %>% 
+  filter(movement_ability == "500")
+
+plot_df_convex <- plot_df %>% 
+  filter(movement == "convex") %>% 
+  filter(movement_ability == "500")
+
+plot_df_concave <- plot_df %>% 
+  filter(movement == "concave") %>% 
+  filter(movement_ability == "500")
+
+# Function for plot
+make_plot <- function(data, title) {
+  ggplot(data, aes(x = habitat_cover, y = (difference), color = interaction(delta_movement, delta_movement_ability))) +
+    geom_point() +
+    labs(title = title, x = "Habitat Cover", y = "Difference", color = "Delta Response") +
+    theme_minimal()
+}
+
+# Create plots
+p1 <- make_plot(plot_df_null, "Null")
+p2 <- make_plot(plot_df_linear, "Linear")
+p3 <- make_plot(plot_df_concave, "Concave")
+p4 <- make_plot(plot_df_convex, "Convex")
+
+# Combine plots side by side
+combined_plot <-   p2 + p3 + p4 + plot_layout(ncol = 3) + plot_layout(guides = "collect")
+
+# Display
+main_title = "High aggregation, Very low dispersal, 5000% increase, High colonisation/ low extinction constants"
+combined_plot + plot_annotation(title = main_title)
+
+
+### medium colonisation/ medium extinction
+
+
+
+plot_df <- delta_df_mc %>%
+  filter(aggregation == "ha") %>% 
+  filter(dispersal == "vld")
+
+plot_df_null <- plot_df %>% 
+  filter(movement == "none") %>% 
+  filter(movement_ability == "0")
+
+plot_df_linear <- plot_df %>% 
+  filter(movement == "linear") %>% 
+  filter(movement_ability == "500")
+
+plot_df_convex <- plot_df %>% 
+  filter(movement == "convex") %>% 
+  filter(movement_ability == "500")
+
+plot_df_concave <- plot_df %>% 
+  filter(movement == "concave") %>% 
+  filter(movement_ability == "500")
+
+# Function for plot
+make_plot <- function(data, title) {
+  ggplot(data, aes(x = habitat_cover, y = (difference), color = interaction(delta_movement, delta_movement_ability))) +
+    geom_point() +
+    labs(title = title, x = "Habitat Cover", y = "Difference", color = "Delta Response") +
+    theme_minimal()
+}
+
+# Create plots
+p1 <- make_plot(plot_df_null, "Null")
+p2 <- make_plot(plot_df_linear, "Linear")
+p3 <- make_plot(plot_df_concave, "Concave")
+p4 <- make_plot(plot_df_convex, "Convex")
+
+# Combine plots side by side
+combined_plot <-   p2 + p3 + p4 + plot_layout(ncol = 3) + plot_layout(guides = "collect")
+
+# Display
+main_title = "High aggregation, Very low dispersal, 500% increase, Medium colonisation/ medium extinction constants"
+combined_plot + plot_annotation(title = main_title)
+
+
+
+
+
+
+### low colonisation/ high extinction
+
+
+
+plot_df <- delta_df_lc %>%
+  filter(aggregation == "ha") %>% 
+  filter(dispersal == "vld")
+
+plot_df_null <- plot_df %>% 
+  filter(movement == "none") %>% 
+  filter(movement_ability == "0")
+
+plot_df_linear <- plot_df %>% 
+  filter(movement == "linear") %>% 
+  filter(movement_ability == "500")
+
+plot_df_convex <- plot_df %>% 
+  filter(movement == "convex") %>% 
+  filter(movement_ability == "500")
+
+plot_df_concave <- plot_df %>% 
+  filter(movement == "concave") %>% 
+  filter(movement_ability == "500")
+
+# Function for plot
+make_plot <- function(data, title) {
+  ggplot(data, aes(x = habitat_cover, y = (difference), color = interaction(delta_movement, delta_movement_ability))) +
+    geom_point() +
+    labs(title = title, x = "Habitat Cover", y = "Difference", color = "Delta Response") +
+    theme_minimal()
+}
+
+# Create plots
+p1 <- make_plot(plot_df_null, "Null")
+p2 <- make_plot(plot_df_linear, "Linear")
+p3 <- make_plot(plot_df_concave, "Concave")
+p4 <- make_plot(plot_df_convex, "Convex")
+
+# Combine plots side by side
+combined_plot <-   p2 + p3 + p4 + plot_layout(ncol = 3) + plot_layout(guides = "collect")
+
+# Display
+main_title = "High aggregation, Very low dispersal, 500% increase, Low colonisation/ high extinction constants"
+combined_plot + plot_annotation(title = main_title)
+
+```
+
+
+
+For the responses with two peaks, little variation is seen between extinction/ colonisation ratios as metapopulation capacity values remain very high. 
+
+
+```{r 1.2.1d, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, dpi=300}
+
+# Plot graphs -------------------------------------------------------------
+
+
+
+
+# Function for plot
+make_plot <- function(data, title) {
+  ggplot(data, aes(x = habitat_cover, y = (difference), color = interaction(delta_movement, delta_movement_ability))) +
+    geom_point() +
+    labs(title = title, x = "Habitat Cover", y = "Difference", color = "Delta Response") +
+    theme_minimal()
+}
+
+
+plot_df <- delta_df_hc %>%
+  filter(aggregation == "ha") %>% 
+  filter(dispersal == "ld")
+
+
+plot_df_convex <- plot_df %>% 
+  filter(movement == "convex") %>% 
+  filter(movement_ability == "5000")
+
+
+p1 <- make_plot(plot_df_convex, "Convex, LE/HC")
+
+
+plot_df <- delta_df_mc %>%
+  filter(aggregation == "ha") %>% 
+  filter(dispersal == "ld")
+
+
+plot_df_convex <- plot_df %>% 
+  filter(movement == "convex") %>% 
+  filter(movement_ability == "5000")
+
+
+p2 <- make_plot(plot_df_convex, "Convex, ME/MC")
+
+
+
+plot_df <- delta_df_lc %>%
+  filter(aggregation == "ha") %>% 
+  filter(dispersal == "ld")
+
+
+plot_df_convex <- plot_df %>% 
+  filter(movement == "convex") %>% 
+  filter(movement_ability == "5000")
+
+
+p3 <- make_plot(plot_df_convex, "Convex, HE/LC")
+
+
+
+# Combine plots side by side
+combined_plot <-   p1 + p2 + p3 + plot_layout(ncol = 2) + plot_layout(guides = "collect")
+
+# Display
+main_title = "High aggregation, Low dispersal, 5000% increase, High colonisation/ low extinction constants"
+combined_plot + plot_annotation(title = main_title)
+
+
+
+
+
+```
 
 
