@@ -12,6 +12,10 @@ An overview of the different methods used can be found here: [Experimental Desig
 
 ## Results
 The model results can be found here: [Results](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results.md)
+
+## Results Exploration
+A discussion of the main findings can be found here: [Results Exploration](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Results/Results_Exploration.md)
+
 ## Source Code
 An index to all source code can be found here: [Source Code Index](https://github.com/benjhodgson/metapop_capacity_matrix/blob/main/Source%20Code/Source_Code_Index.md)
 
